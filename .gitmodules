@@ -25,3 +25,6 @@
 [submodule "submodules/vim-colors-off"]
 	path = submodules/vim-colors-off
 	url = https://github.com/pbrisbin/vim-colors-off
+[submodule "submodules/winterd"]
+	path = submodules/winterd
+	url = https://github.com/smurfd/winterd
