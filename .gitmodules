@@ -40,3 +40,6 @@
 [submodule "submodules/vim-deus"]
 	path = submodules/vim-deus
 	url = https://github.com/ajmwagar/vim-deus
+[submodule "submodules/yuejiu"]
+	path = submodules/yuejiu
+	url = https://github.com/slugbyte/yuejiu

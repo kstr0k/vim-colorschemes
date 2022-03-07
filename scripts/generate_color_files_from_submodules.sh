@@ -18,6 +18,8 @@ cat ../submodules/greenwint/colors/greenwint.vim >| ../colors/greenwint.vim
 
 cat ../submodules/vim-deus/colors/deus.vim >| ../colors/deus.vim
 
+cat ../submodules/yuejiu/colors/yuejiu.vim >| ../colors/yuejiu.vim
+
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 
