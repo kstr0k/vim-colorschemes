@@ -17,3 +17,9 @@ cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 # https://github.com/dfxyz/CandyPaper.vim/blob/30290f1eb12eefe44bac6810898fcf80a7fa98e2/README.md
 echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/CandyPaper.vim
 cat ../submodules/CandyPaper.vim/colors/CandyPaper.vim >> ../colors/CandyPaper.vim
+
+cat ../submodules/iceberg.vim/autoload/iceberg/palette/dark.vim >| ../colors/iceberg.vim
+cat ../submodules/iceberg.vim/autoload/iceberg/palette/light.vim >> ../colors/iceberg.vim
+sed -i -E 's/iceberg#palette#\w+/iceberg/g' ../colors/iceberg.vim
+cat ../submodules/iceberg.vim/colors/iceberg.vim >> ../colors/iceberg.vim
+

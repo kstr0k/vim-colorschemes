@@ -7,3 +7,6 @@
 [submodule "submodules/CandyPaper.vim"]
 	path = submodules/CandyPaper.vim
 	url = https://github.com/dfxyz/CandyPaper.vim
+[submodule "submodules/iceberg.vim"]
+	path = submodules/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
