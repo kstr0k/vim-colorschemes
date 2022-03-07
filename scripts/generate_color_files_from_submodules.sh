@@ -8,5 +8,7 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
+cat ../submodules/vim-code-dark/colors/codedark.vim >| ../colors/codedark.vim
+
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
