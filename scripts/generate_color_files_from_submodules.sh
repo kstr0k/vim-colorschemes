@@ -16,6 +16,8 @@ cat ../submodules/tender.vim/colors/tender.vim >| ../colors/tender.vim
 
 cat ../submodules/greenwint/colors/greenwint.vim >| ../colors/greenwint.vim
 
+cat ../submodules/vim-deus/colors/deus.vim >| ../colors/deus.vim
+
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 

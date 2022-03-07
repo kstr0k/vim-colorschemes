@@ -2,11 +2,11 @@
 " File: deus.vim
 " Description: a retro-modern colorscheme in Vim
 " Author: ajmwagar
-" Source: https://github.com/ajmwagar/deus
-" Last Modified: 14 Nov 2017
+" Source: https://github.com/ajmwagar/vim-deus
+" Last Modified: 21 June 2019
 " -----------------------------------------------------------------------------
 
-" Supporting code -------------------------------------------------------------
+" Setup Colors/Palette {{{
 " Initialisation: {{{
 
 if version > 580
@@ -85,7 +85,7 @@ let s:ds = {}
 " fill it with absolute colors
 let s:ds.dark0       = ['#2C323B', 235]     " 40-40-40 Background
 let s:ds.dark1       = ['#3c3836', 237]     " 60-56-54
-let s:ds.dark2       = ['#2C313A', 239]     " 80-73-69
+let s:ds.dark2       = ['#242a32', 239]     " 80-73-69
 let s:ds.dark3       = ['#665c54', 241]     " 102-92-84
 let s:ds.dark4       = ['#7c6f64', 243]     " 124-111-100
 let s:ds.dark4_256   = ['#7c6f64', 243]     " 124-111-100
@@ -208,7 +208,6 @@ let s:ds.aqua   = s:aqua
 let s:ds.orange = s:orange
 
 " }}}
-
 " Overload Setting: {{{
 
 let s:hls_cursor = s:orange
@@ -217,7 +216,7 @@ if exists('g:deus_hls_cursor')
 endif
 
 let s:number_column = s:bg4
-let s:sign_column = s:bg1
+let s:sign_column = s:bg2
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
       \ g:gitgutter_override_sign_column_highlight == 1
@@ -363,8 +362,8 @@ call s:HL('deusPurpleSign', s:purple, s:sign_column, s:invert_signs)
 call s:HL('deusAquaSign', s:aqua, s:sign_column, s:invert_signs)
 
 " }}}
-
-" Vanilla colorscheme ---------------------------------------------------------
+" }}}
+" Vanilla colorscheme {{{
 " General UI: {{{
 
 " Normal text
@@ -381,7 +380,7 @@ endif
 
 if version >= 700
   " Screen line that the cursor is
-  call s:HL('CursorLine',   s:none, s:bg1)
+  call s:HL('CursorLine',   s:none, s:bg2)
   " Screen column that the cursor is
   hi! link CursorColumn CursorLine
 
@@ -389,6 +388,7 @@ if version >= 700
   call s:HL('TabLineFill', s:bg4, s:vim_bg, s:invert_tabline)
   " Active tab page label
   call s:HL('TabLineSel', s:vim_bg, s:bg4, s:bold . s:invert_tabline)
+
   " Not active tab page label
   hi! link TabLine TabLineFill
 
@@ -404,11 +404,13 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:yellow, s:bg1)
+  call s:HL('CursorLineNr', s:fg1, s:bg2)
 endif
 
-hi! link NonText deusBg2
-hi! link SpecialKey deusBg2
+" Weird black color breaks 
+hi! link NonText deusGreen 
+hi! link Ignore deusPurple 
+hi! link SpecialKey deusOrange
 
 call s:HL('Visual',    s:none,  s:bg3, s:invert_selection)
 hi! link VisualNOS Visual
@@ -418,8 +420,8 @@ call s:HL('IncSearch', s:bg0, s:hls_cursor)
 
 call s:HL('Underlined', s:blue, s:none, s:underline)
 
-call s:HL('StatusLine',   s:bg4, s:bg0, s:bold . s:inverse)
-call s:HL('StatusLineNC', s:bg2, s:fg4, s:bold . s:inverse)
+call s:HL('StatusLine',   s:bg2, s:fg1, s:bold . s:inverse)
+call s:HL('StatusLineNC', s:bg2, s:fg1, s:bold . s:inverse)
 
 " The column separating vertically split windows
 call s:HL('VertSplit', s:fg4, s:vert_split)
@@ -454,9 +456,9 @@ call s:HL('LineNr', s:number_column)
 call s:HL('SignColumn', s:none, s:sign_column)
 
 " Line used for closed folds
-call s:HL('Folded', s:gray, s:bg1, s:italic)
+call s:HL('Folded', s:gray, s:bg2, s:italic)
 " Column where folds are displayed
-call s:HL('FoldColumn', s:gray, s:bg1)
+call s:HL('FoldColumn', s:gray, s:bg2)
 
 " }}}
 " Cursor: {{{
@@ -586,8 +588,18 @@ if has("spell")
 endif
 
 " }}}
+" }}}
+" Plugin specific {{{
+" Cocnvim: {{{
+" Symbols
+highlight link CocErrorSign deusRedSign
+highlight link CocWarningSign deusYellowSign
+highlight link CocInfoSign deusAquaSign
+highlight link CocHintSign deusGreenSign
 
-" Plugin specific -------------------------------------------------------------
+" Text highlights
+call s:HL('CocHighlightText', s:fg1, s:bg2)
+"}}}
 " EasyMotion: {{{
 
 hi! link EasyMotionTarget Search
@@ -675,6 +687,9 @@ hi! link gitcommitDiscardedFile deusRed
 hi! link SignifySignAdd deusGreenSign
 hi! link SignifySignChange deusAquaSign
 hi! link SignifySignDelete deusRedSign
+" hi! SignifySignAdd guibg=#242a32 guifg=#99c379
+" hi! SignifySignDelete guibg=#242a32 guifg=#fb4733
+" hi! SignifySignChange guibg=#242a32 guifg=#8ec07b
 
 " }}}
 " Syntastic: {{{
@@ -684,6 +699,8 @@ call s:HL('SyntasticWarning', s:none, s:none, s:undercurl, s:yellow)
 
 hi! link SyntasticErrorSign deusRedSign
 hi! link SyntasticWarningSign deusYellowSign
+hi! link AleWarningSign deusYellowSign
+hi! link AleErrorSign deusRedSign
 
 " }}}
 " Signature: {{{
@@ -712,6 +729,24 @@ call s:HL('CtrlPMode2', s:bg0, s:blue, s:bold)
 call s:HL('CtrlPStats', s:fg4, s:bg2, s:bold)
 
 " }}}
+" FZF: {{{
+let g:fzf_colors =
+      \ {
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
+
+call s:HL('NormalFloat', s:fg1, s:bg2)
+"
+" }}}
 " Startify: {{{
 
 hi! link StartifyBracket deusFg3
@@ -737,14 +772,24 @@ let g:vimshell_escape_colors = [
 " }}}
 " BufTabLine: {{{
 
-call s:HL('BufTabLineCurrent', s:bg0, s:fg4)
+call s:HL('BufTabLineCurrent', s:bg0, s:green)
 call s:HL('BufTabLineActive', s:fg4, s:bg2)
-call s:HL('BufTabLineHidden', s:bg4, s:bg1)
-call s:HL('BufTabLineFill', s:bg0, s:bg0)
+call s:HL('BufTabLineHidden', s:fg1, s:bg2)
+call s:HL('BufTabLineFill', s:bg0, s:bg2)
+
+hi StatusLine ctermbg=10 ctermfg=10 cterm=bold guibg=NONE guifg=NONE gui=NONE
+hi StatusLineNC ctermbg=10 ctermfg=10 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
 " }}}
+" Netrw: {{{
 
-" Filetype specific -----------------------------------------------------------
+hi! link netrwDir deusGreen
+hi! link netrwClassify deusBlue
+hi! link netrwTreeBar deusRed
+hi! link netrwPlain deusFg1
+
+" }}}
+" Language syntax {{{
 " Diff: {{{
 
 hi! link diffAdded deusGreen
@@ -856,6 +901,31 @@ hi! link cOperator deusPurple
 hi! link cStructure deusOrange
 
 " }}}
+" C++ {{{
+
+hi! link  NamespaceTag deusPurpleBold
+hi! link  NamespaceAliasTag deusPurpleBold
+hi! link  ClassTag duesOrange
+hi! link  StructureTag deusOrange
+hi! link  EnumTag deusAqua
+hi! link  EnumValueTag deusAqua
+hi! link  UnionTag deusPurple
+hi! link  FieldTag deusPurple
+hi! link  LocalVariableTag deusOrange
+hi! link  FunctionTag deusGreen 
+hi! link  MethodTag deusGreen
+hi! link  FunctionParameterTag deusPurpleBold 
+hi! link  TemplateTypeParameterTag deusPurple
+hi! link  TemplateNonTypeParameterTag deusRedBold
+hi! link  TemplateTemplateParameterTag deusRed
+hi! link  MacroDefinitionTag deusBlue
+hi! link  MacroInstantiationTag deusBlue
+hi! link  TypedefTag deusPurple
+hi! link  UsingDirectiveTag deusOrange
+hi! link  UsingDeclarationTag deusOrange
+
+
+" }}}
 " Python: {{{
 
 hi! link pythonBuiltin deusOrange
@@ -945,8 +1015,10 @@ hi! link javascriptClassSuper deusOrange
 
 " hi! link javascriptFuncKeyword deusOrange
 " hi! link javascriptAsyncFunc deusOrange
+hi! link javascriptFuncName deusFg1
 hi! link javascriptFuncKeyword deusAqua
-hi! link javascriptAsyncFunc deusAqua
+hi! link javascriptAwaitFuncKeyword deusRed
+hi! link javascriptAsyncFuncKeyword deusBlue
 hi! link javascriptClassStatic deusOrange
 
 hi! link javascriptOperator deusRed
@@ -966,7 +1038,7 @@ hi! link javascriptObjectLabel deusFg1
 hi! link javascriptPropertyName deusFg1
 
 hi! link javascriptLogicSymbols deusFg1
-hi! link javascriptArrowFunc deusFg1
+hi! link javascriptArrowFunc deusYellow
 
 hi! link javascriptDocParamName deusFg4
 hi! link javascriptDocTags deusFg4
@@ -974,6 +1046,16 @@ hi! link javascriptDocNotation deusFg4
 hi! link javascriptDocParamType deusFg4
 hi! link javascriptDocNamedParamType deusFg4
 
+" }}}
+" jsx-pretty: {{{
+hi! link jsxTagName deusBlue
+hi! link jsxComponentName jsxTagName
+hi! link jsxOpenPunct deusGray
+hi! link jsxBraces jsxTagName
+hi! link jsxCloseString jsxOpenPunct
+hi! link jsxEqual jsxTagName
+hi! link jsxString javascriptString
+hi! link jsxAttrib jsxString
 " }}}
 " CoffeeScript: {{{
 
@@ -1140,9 +1222,8 @@ hi! link jsonBraces deusFg1
 hi! link jsonString deusFg1
 
 " }}}
-
-
-" Functions -------------------------------------------------------------------
+" }}}
+" Utility Functions {{{
 " Search Highlighting Cursor {{{
 
 function! DeusHlsShowCursor()
@@ -1154,23 +1235,6 @@ function! DeusHlsHideCursor()
 endfunction
 
 " }}}
-
-hi! link SignColumn LineNr
-    hi! VertSplit guibg=#242a32
-    hi! StatusLine guifg=#242a32 guibg=#ebdab2
-    hi! StatusLineNC guifg=#242a32 guibg=#ebdab2
-    hi! CursorLineNr guibg=#242a32 guifg=#ebdab2
-
-    hi! SignColumn guibg=#242a32
-    hi! SignifySignAdd guibg=#242a32 guifg=#99c379
-    hi! SignifySignDelete guibg=#242a32 guifg=#fb4733
-    hi! SignifySignChange guibg=#242a32 guifg=#8ec07b
-
-    hi! AleWarningSign guibg=#242a32 guifg=#ebdab2
-
-    hi! CursorLine guibg=#292f37
-    hi! ColorColumn guibg=#292f37
-    hi  Folded guibg=#242a32
-    hi! FoldColumn guibg=#242a32
+" }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:

@@ -37,3 +37,6 @@
 [submodule "submodules/nord-vim"]
 	path = submodules/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim
+[submodule "submodules/vim-deus"]
+	path = submodules/vim-deus
+	url = https://github.com/ajmwagar/vim-deus
