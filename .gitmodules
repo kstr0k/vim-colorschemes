@@ -13,3 +13,6 @@
 [submodule "submodules/jellybeans.vim"]
 	path = submodules/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim
+[submodule "submodules/tender.vim"]
+	path = submodules/tender.vim
+	url = https://github.com/jacoborus/tender.vim
