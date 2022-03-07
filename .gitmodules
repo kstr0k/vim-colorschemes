@@ -1,0 +1,3 @@
+[submodule "submodules/vim-code-dark"]
+	path = submodules/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
