@@ -35,3 +35,7 @@ echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\
 echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/gotham256.vim
 cat ../submodules/vim-gotham/colors/gotham.vim >> ../colors/gotham.vim
 cat ../submodules/vim-gotham/colors/gotham256.vim >> ../colors/gotham256.vim
+
+# Fixes incorrect colors.
+echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/off.vim
+cat ../submodules/vim-colors-off/colors/off.vim >> ../colors/off.vim

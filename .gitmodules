@@ -22,3 +22,6 @@
 [submodule "submodules/vim-gotham"]
 	path = submodules/vim-gotham
 	url = https://github.com/whatyouhide/vim-gotham
+[submodule "submodules/vim-colors-off"]
+	path = submodules/vim-colors-off
+	url = https://github.com/pbrisbin/vim-colors-off

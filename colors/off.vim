@@ -1,3 +1,7 @@
+set termguicolors
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
 " Name:       off.vim
 " Version:    0.1
 " Maintainer: github.com/pbrisbin
@@ -16,6 +20,7 @@ if exists('syntax on')
 endif
 
 let g:colors_name='off'
+let colors_off_a_little = get(g:, 'colors_off_a_little', 0)
 
 let s:black           = { "gui": "#212121", "cterm": "0"   }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
@@ -26,6 +31,7 @@ let s:lighter_black   = { "gui": "#545454", "cterm": "240" }
 let s:subtle_black    = { "gui": "#303030", "cterm": "236" }
 let s:light_gray      = { "gui": "#B2B2B2", "cterm": "249" }
 let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
+let s:subtle_gray     = { "gui": "#696969", "cterm": "250" }
 let s:pink            = { "gui": "#fb007a", "cterm": "9"   }
 let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
@@ -46,6 +52,7 @@ let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 if &background == "dark"
   let s:bg              = s:black
   let s:bg_subtle       = s:light_black
+  let s:bg_subtle_comment = s:subtle_gray
   let s:bg_very_subtle  = s:subtle_black
   let s:norm            = s:lighter_gray
   let s:norm_subtle     = s:light_gray
@@ -57,6 +64,7 @@ if &background == "dark"
 else
   let s:bg              = s:actual_white
   let s:bg_subtle       = s:light_gray
+  let s:bg_subtle_comment = s:subtle_gray
   let s:bg_very_subtle  = s:lighter_gray
   let s:norm            = s:light_black
   let s:norm_subtle     = s:lighter_black
@@ -81,7 +89,7 @@ endfunction
 
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:blue, "fg": s:norm })
-call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
+call s:h("Comment",       {"fg": s:bg_subtle_comment, "gui": "italic"})
 
 "call s:h("Constant",      {"fg": s:cyan})
 hi! link Constant         Normal
@@ -196,7 +204,25 @@ hi link diffAdded         DiffAdd
 hi link SignifySignAdd              LineNr
 hi link SignifySignDelete           LineNr
 hi link SignifySignChange           LineNr
-hi link GitGutterAdd                LineNr
-hi link GitGutterDelete             LineNr
-hi link GitGutterChange             LineNr
-hi link GitGutterChangeDelete       LineNr
+if colors_off_a_little
+    hi! GitGutterAdd guifg=#10A778 ctermfg=2
+    hi! GitGutterChange guifg=#A89C14 ctermfg=3
+    hi! GitGutterDelete guifg=#C30771 ctermfg=1
+    hi! GitGutterChangeDelete guifg=#C30771 ctermfg=1
+else
+    hi link GitGutterAdd                LineNr
+    hi link GitGutterDelete             LineNr
+    hi link GitGutterChange             LineNr
+    hi link GitGutterChangeDelete       LineNr
+endif
+
+" Fuzzy Search, Telescope & CtrlP
+if colors_off_a_little
+    hi! CtrlPMatch                   ctermbg=235 ctermfg=250 guibg=NONE guifg=#5FD7A7 cterm=NONE gui=NONE
+    hi! TelescopeMatching            guifg=#5FD7A7 guibg=#303030 ctermbg=NONE
+    highlight TelescopeSelection     guifg=NONE gui=bold guibg=#303030
+else
+    hi! CtrlPMatch                   ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE cterm=NONE gui=bold
+    hi! TelescopeMatching            guifg=NONE guibg=NONE ctermbg=NONE
+    highlight TelescopeSelection     guifg=NONE gui=bold guibg=#303030
+endif
