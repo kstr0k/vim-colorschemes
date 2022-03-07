@@ -19,9 +19,7 @@ cat ../submodules/greenwint/colors/greenwint.vim >| ../colors/greenwint.vim
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 
-# Settings that's suppose to be in '.vimrc' as instructed in:
-# https://github.com/dfxyz/CandyPaper.vim/blob/30290f1eb12eefe44bac6810898fcf80a7fa98e2/README.md
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/CandyPaper.vim
+cat ./termguicolors.vim >| ../colors/CandyPaper.vim
 cat ../submodules/CandyPaper.vim/colors/CandyPaper.vim >> ../colors/CandyPaper.vim
 
 cat ../submodules/iceberg.vim/colors/iceberg.vim >| ../colors/iceberg.vim
@@ -29,20 +27,16 @@ cat ../submodules/iceberg.vim/colors/iceberg.vim >| ../colors/iceberg.vim
 cat ../submodules/onedark.vim/autoload/onedark.vim >| ../colors/onedark.vim
 cat ../submodules/onedark.vim/colors/onedark.vim >> ../colors/onedark.vim
 
-# Fixes incorrect colors.
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/gotham.vim
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/gotham256.vim
+cat ./termguicolors.vim >| ../colors/gotham.vim
+cat ./termguicolors.vim >| ../colors/gotham256.vim
 cat ../submodules/vim-gotham/colors/gotham.vim >> ../colors/gotham.vim
 cat ../submodules/vim-gotham/colors/gotham256.vim >> ../colors/gotham256.vim
 
-# Fixes incorrect colors.
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/off.vim
+cat ./termguicolors.vim >| ../colors/off.vim
 cat ../submodules/vim-colors-off/colors/off.vim >> ../colors/off.vim
 
-# Fixes incorrect colors.
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/winterd.vim
+cat ./termguicolors.vim >| ../colors/winterd.vim
 cat ../submodules/winterd/colors/winterd.vim >> ../colors/winterd.vim
 
-# Fixes incorrect colors.
-echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/pencil.vim
+cat ./termguicolors.vim >| ../colors/pencil.vim
 cat ../submodules/vim-colors-pencil/colors/pencil.vim >> ../colors/pencil.vim
