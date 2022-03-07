@@ -1,81 +1,23 @@
-**me:** Hi everyone, my name is Franco and I'm addicted to colorschemes
+# Vim colorschemes
 
-**everyone else:** *Hi Franco*
+One stop shop for vim colorschemes.
 
-Vim colorschemes
-================
+The [original repo](https://github.com/flazz/vim-colorschemes) by `flazz` has 
+been unmaintained since 2020.
 
-one stop shop for vim colorschemes.
+This fork hopes to update/fix all the colorschemes, and remove outdated/buggy ones.
 
-this was [originally] harvested from vim.org. only colorschemes downloaded in a single `.vim`
-file are included.
+Currently I'm using submodules _(in the `/submodules` dir)_ to allow easy 
+updating of the colorscheme from their respective repos.
 
-for hacking on vim.org harvesting see the branch [prep](https://github.com/flazz/vim-colorschemes/tree/prep).
-
-Policy
-------
-- honor system is in effect!
-- new schemes are welcome!
-- upstream updates are accepted!
-- non-upstream updates are accepted as derivitive schemes: pick a new filename; cite the original!
-- housekeeping updates are accepted too!
-
-Installation
-------------
-
-Basic install - very simple (*nix or cygwin install)
-
-    mkdir ~/.vim
-    git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
-
-if you [use vim + pathogen](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
-
-    git submodule add https://github.com/flazz/vim-colorschemes.git ~/.vim/bundle/colorschemes
-
-if you [use vim + vundle](https://github.com/gmarik/vundle)
-
-    " add to .vimrc
-    Plugin 'flazz/vim-colorschemes'
-    :PluginInstall
-
-if you aren't so clever just get all the files in `colors/*.vim` into
-  `~/.vim/colors`
-
-    # after downloading; unpacking; cd'ing
-    cp colors/* ~/.vim/colors
-    
-Using
------
-
-To change the colorscheme of Vim, add to your `.vimrc`:
-
-    colorscheme nameofcolorscheme
-    
-For example, to change the color scheme to wombat:
-    
-    colorscheme wombat
-    
-To change to Molokai:
-
-    colorscheme molokai
-    
-Inside Vim, you use:
-    
-    :colorscheme molokai
-
-Previewing colorschemes
------------------------
-There are quite a few colorschemes in this. To preview them on your live code inside of Vim, checkout [this page from the vim wikia](http://vim.wikia.com/wiki/Switch_color_schemes) and [this repo for easy installation](https://github.com/felixhummel/setcolors.vim).
+Many colorscheme repos has their palettes variables in declared in the 
+`/autoload` dir, or has additional configs needed in their `.vimrc`. Thus I've 
+created a script `/script/generate_color_files_from_submodules.sh` to combine
+those additional configs into 1 file in the `/colors` dir.
 
 
-Something missing? Fork!
-------------------------
+- If you wanna help out, just drop me a `Pull Request` or `Issue` or contact me
+somehow, I'm still pretty new to Github.
 
-fork [this repo](http://github.com/flazz/vim-colorschemes); send a
-pull request!; I'll take it!
-
-- - -
-
-I'm a slave to aesthetics. If you are too, I hope this helps.
-
-[email](mailto:flazzarino@gmail.com)
+- If there's a colorscheme that needs updating, or a colorscheme that should be
+removed, just let me know.
