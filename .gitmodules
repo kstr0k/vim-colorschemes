@@ -16,3 +16,6 @@
 [submodule "submodules/tender.vim"]
 	path = submodules/tender.vim
 	url = https://github.com/jacoborus/tender.vim
+[submodule "submodules/onedark.vim"]
+	path = submodules/onedark.vim
+	url = https://github.com/joshdick/onedark.vim
