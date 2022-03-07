@@ -34,3 +34,6 @@
 [submodule "submodules/greenwint"]
 	path = submodules/greenwint
 	url = https://github.com/preocanin/greenwint
+[submodule "submodules/nord-vim"]
+	path = submodules/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim

@@ -40,3 +40,6 @@ cat ../submodules/winterd/colors/winterd.vim >> ../colors/winterd.vim
 
 cat ./termguicolors.vim >| ../colors/pencil.vim
 cat ../submodules/vim-colors-pencil/colors/pencil.vim >> ../colors/pencil.vim
+
+cat ./termguicolors.vim >| ../colors/nord.vim
+cat ../submodules/nord-vim/colors/nord.vim >> ../colors/nord.vim
