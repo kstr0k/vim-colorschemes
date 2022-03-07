@@ -1,11 +1,12 @@
 " ------------------------------------------------------------------
-" Copyright:	2006,2018 SM Smithfield
+" Copyright:	2006..2020 SM Smithfield
 " Author:	SM Smithfield (smDOTsmithfieldATgmailDOTcom)
 " Description:  Vim colorscheme file.
 " Filename:	marklar.vim
 " Install:      Put this file in the users colors directory (~/.vim/colors)
 "               load it with :colorscheme marklar
-" Version:      0.7
+" Modified: 
+" Version:      0.8
 " ------------------------------------------------------------------
 hi clear
 set background=dark
@@ -53,7 +54,6 @@ let g:colors_name = "marklar"
     " \{'guibg': '#835293'}]
 " ------------------------------------------------------------------
 if !exists("s:main")
-
     " OPTIONS: 
     " default values
     " use globals to override. 
@@ -63,6 +63,8 @@ if !exists("s:main")
      let g:marklar_ignore_opt = 1
      let g:marklar_underline_opt = 0
      let g:marklar_conceal_opt = 1
+     let g:marklar_cursor_opt = 0
+     let g:marklar_pmenu_opt = 0
     endif
 
     function! s:main()
@@ -99,6 +101,15 @@ if !exists("s:main")
             let s:conceal = 'Ignore'
         endif
 
+        let s:cursor = '#ff0000'
+        if g:marklar_cursor_opt==1
+            let s:cursor = '#00ff00'
+        endif
+        if g:marklar_cursor_opt==2
+            let s:cursor = '#ff5900'
+        endif
+
+
         " if s:heat_opt && s:heat_opt == 1
             " execute "hi PreProc         guifg=#e751ce guibg=NONE    gui=".s:bold
             " execute "hi Statement       guifg=#f9a500 guibg=NONE    gui=".s:bold
@@ -126,6 +137,7 @@ if !exists("s:main")
             execute "hi Type            guifg=#FFFF00 guibg=NONE    gui=".s:bold."        ctermfg=3 cterm=".s:bold
             execute "hi Special         guifg=#38FF56 guibg=bg      gui=".s:bold."        ctermfg=2 cterm=".s:bold
             execute "hi Identifier      guifg=#00FFFF guibg=NONE    gui=".s:bold."        ctermfg=8 cterm=".s:bold
+            execute "hi MatchParen      guifg=#38ff56 guibg=#0000ff gui=".s:bold." ctermbg=4"
             execute "hi Constant        guifg=#FFFFFF guibg=NONE                          ctermfg=7 cterm=NONE"
             execute "hi Underlined      guifg=#FF7070 guibg=NONE    gui=".s:underline."   ctermfg=8 cterm=".s:underline
             execute "hi Bleached        guifg=#b9eece guibg=NONE    gui=".s:bold."        ctermfg=2 cterm=".s:bold
@@ -135,8 +147,9 @@ if !exists("s:main")
             execute "hi Type            guifg=#FFFF00 guibg=NONE    gui=".s:bold."        ctermfg=11  cterm=".s:bold
             execute "hi Special         guifg=#38FF56 guibg=bg      gui=".s:bold."        ctermfg=10  cterm=".s:bold
             execute "hi Identifier      guifg=#00FFFF guibg=NONE    gui=".s:bold."        ctermfg=14  cterm=".s:bold
+            execute "hi MatchParen      guifg=NONE    guibg=#047686 gui=".s:bold." ctermbg=4"
             execute "hi Constant        guifg=#FFFFFF guibg=NONE                          ctermfg=15  cterm=NONE"
-            execute "hi Underlined      guifg=#FF7070 guibg=NONE    gui=".s:underline."  ctermfg=203 cterm=".s:underline
+            execute "hi Underlined      guifg=#FF7070 guibg=NONE    gui=".s:underline."   ctermfg=203 cterm=".s:underline
             execute "hi Bleached        guifg=#b9eece guibg=NONE    gui=".s:bold."        ctermfg=158 cterm=".s:bold
         endif
                      hi Comment         guifg=#00BBBB guibg=NONE                   ctermfg=36 cterm=none
@@ -147,47 +160,56 @@ if !exists("s:main")
 
         execute "hi Ignore           guifg=".s:ignore." guibg=NONE               ctermfg=36"
 
-        hi Cursor           guifg=NONE    guibg=#FF0000                      ctermbg=1
-        hi DiffAdd          guifg=NONE    guibg=#136769            ctermfg=4 ctermbg=7 cterm=NONE
-        hi DiffDelete       guifg=NONE    guibg=#50694A            ctermfg=1 ctermbg=7 cterm=NONE
-        hi DiffChange       guifg=fg      guibg=#00463c gui=NONE   ctermfg=4 ctermbg=2 cterm=NONE
-        hi DiffText         guifg=#7CFC94 guibg=#00463c gui=bold   ctermfg=4 ctermbg=3 cterm=NONE
+        execute "hi Cursor guifg=NONE guibg=".s:cursor." ctermbg=1"
+        hi DiffAdd          guifg=NONE    guibg=#136769            ctermfg=none ctermbg=23 cterm=NONE
+        hi DiffDelete       guifg=NONE    guibg=#50694A            ctermfg=none ctermbg=58 cterm=NONE
+        hi DiffChange       guifg=fg      guibg=#00463C gui=NONE   ctermfg=none ctermbg=22 cterm=NONE
+        hi DiffText         guifg=#7CFC94 guibg=#00463C gui=bold   ctermfg=none ctermbg=22 cterm=bold
         hi Directory        guifg=#25B9F8 guibg=NONE               ctermfg=2
-        hi Error            guifg=#f9a500 guibg=#4f7232            ctermfg=178 ctermbg=130 cterm=bold
-        hi ErrorMsg         guifg=#8eff2e guibg=#204d40
-        hi FoldColumn       guifg=#00BBBB guibg=#204d40
-        hi Folded           guifg=#44DDDD guibg=#204d40            ctermfg=6 ctermbg=23 cterm=bold
-        hi IncSearch                      guibg=#52891f gui=bold
-        hi LineNr           guifg=#38ff56 guibg=#204d40
-        hi ModeMsg          guifg=#FFFFFF guibg=#0000FF            ctermfg=29 ctermbg=4 cterm=bold
-        hi MoreMsg          guifg=#FFFFFF guibg=#00A261            ctermfg=7  ctermbg=2 cterm=bold
-        hi NonText          guifg=#00bbbb guibg=#204d40            ctermfg=2
-        hi Normal           guifg=#71C293 guibg=#06544a
-        hi Question         guifg=#FFFFFF guibg=#00A261
-        hi Search           guifg=NONE    guibg=#0f374c            ctermfg=3 ctermbg=0 cterm=bold
+        hi Error            guifg=#F9A500 guibg=#4F7232            ctermfg=178 ctermbg=130 cterm=bold
+        hi ErrorMsg         guifg=#8EFF2E guibg=#204D40            ctermfg=70 ctermbg=28 cterm=bold
+        hi FoldColumn       guifg=#00BBBB guibg=#204D40
+        hi Folded           guifg=#44DDDD guibg=#204D40            ctermfg=6 ctermbg=23 cterm=bold
+        hi IncSearch                      guibg=#A8436D gui=bold
+        hi LineNr           guifg=#38ff56 guibg=#204D40
+        hi ModeMsg          guifg=#8EFF2E guibg=#204D40            ctermfg=29 ctermbg=22 cterm=bold
+        hi MoreMsg          guifg=#00FFFF guibg=#00925E            ctermfg=51  ctermbg=30 cterm=bold
+        hi NonText          guifg=#00BBBB guibg=#204d40            ctermfg=2
+        hi Normal           guifg=#71C293 guibg=#06544A
+        hi Question         guifg=#f9a500 guibg=#4f7232
+        hi Search           guifg=NONE    guibg=#1e4bba            ctermfg=3 ctermbg=0 cterm=bold
         hi SignColumn       guifg=#00BBBB guibg=#204d40
         hi SpecialKey       guifg=#00FFFF guibg=#266955
         hi StatusLine       guifg=#245748 guibg=#71C293 gui=NONE   cterm=reverse
         hi StatusLineNC     guifg=#245748 guibg=#689C7C gui=NONE
         hi Title            guifg=#7CFC94 guibg=NONE    gui=bold   ctermfg=2 cterm=bold
         hi Visual                         guibg=#0B7260 gui=NONE   ctermbg=29 cterm=Reverse
-        hi WarningMsg       guifg=#FFFFFF guibg=#FF0000            ctermfg=7 ctermbg=1 cterm=bold
-        hi WildMenu         guifg=#20012e guibg=#00a675 gui=bold   ctermfg=NONE ctermbg=NONE cterm=bold
+        " hi WarningMsg       guifg=#8EFF2E guibg=#204D40            ctermfg=7 ctermbg=1 cterm=bold
+        " hi WarningMsg       guifg=#FFa000 guibg=#1e4bba gui=bold   ctermfg=7 ctermbg=1 cterm=bold
+        hi WarningMsg       guifg=#FFa000 guibg=#A8436D gui=bold   ctermfg=7 ctermbg=1 cterm=bold
+        hi WildMenu         guifg=#20012E guibg=#00A675 gui=bold   ctermfg=NONE ctermbg=NONE cterm=bold
         "
         if version >= 700
-            hi SpellBad     guisp=#FF0000                          ctermfg=0 cterm=reverse 
-            hi SpellCap     guisp=#0000FF                          ctermfg=0 cterm=reverse 
-            hi SpellRare    guisp=#ff4046                          ctermfg=0 cterm=reverse 
-            hi SpellLocal   guisp=#000000                          ctermbg=0
+            hi SpellBad     guisp=#25B9FF                          ctermfg=0 cterm=reverse 
+            hi SpellCap     guisp=#FFa000                          ctermfg=0 cterm=reverse 
+            hi SpellRare    guisp=#FF4046                          ctermfg=0 cterm=reverse 
+            hi SpellLocal   guisp=#FF7070                          ctermbg=0
+        if g:marklar_pmenu_opt == 1
+            hi Pmenu        guifg=#8EFF2E guibg=#204D40
+            hi PmenuSel     guifg=#f9a500 guibg=#4f7232 gui=bold   ctermfg=3 cterm=bold 
+            hi PmenuSbar    guifg=#204D40 guibg=#00A675                      ctermbg=6
+            hi PmenuThumb   guifg=#204D40 guibg=#f9a500                      ctermfg=3
+        else
             hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
             hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   ctermfg=3 cterm=bold 
             hi PmenuSbar    guifg=#000000 guibg=#0000ff                      ctermbg=6
             hi PmenuThumb   guifg=#000000 guibg=#ff0000                      ctermfg=3
+        endif
             hi ColorColumn  guibg=#096354                                    ctermbg=30
             hi CursorColumn guibg=#096354                                    ctermbg=30
             hi CursorLine   guibg=#096354                                    ctermbg=30
             hi CursorLineNr guifg=#ffde00 guibg=#839925
-            hi Tabline      guifg=bg      guibg=fg      gui=NONE              cterm=reverse,bold ctermfg=NONE ctermbg=NONE
+            hi Tabline      guifg=bg      guibg=fg      gui=NONE  cterm=reverse,bold ctermfg=NONE ctermbg=NONE
             hi TablineSel   guifg=#20012e guibg=#00a675 gui=bold
             hi TablineFill  guifg=#689C7C
         endif
@@ -204,6 +226,55 @@ if !exists("s:main")
             " hi debugPC 
             " hi debugBreakpoint 
         endif
+        " windows, the final frontier
+        "
+        " windows term is effectively a 16 color situation, where several of
+        " the colors aren't available, or aren't usable w/ the Normal fg/bg combo 
+        " the color map progression cannot be made to work as w/ other terms
+        " and must be approximated.
+        if &term=="win32" 
+            " hi Visual       term=none cterm=none ctermfg=none ctermbg=none gui=none guifg=none guibg=none
+            hi Visual       ctermbg=3
+            " hi Search       term=none cterm=none ctermfg=none ctermbg=none gui=none guifg=none guibg=none
+            hi Search       ctermbg=1
+            " hi ModeMsg      term=none cterm=none ctermfg=none ctermbg=none gui=none guifg=none guibg=none
+            hi ModeMsg      ctermbg=2 ctermfg=10
+            " hi MoreMsg      term=none cterm=none ctermfg=none ctermbg=none gui=none guifg=none guibg=none
+            hi MoreMsg      ctermbg=3 ctermfg=11
+            hi PreProc       ctermfg=3
+            hi Statement     ctermfg=10
+            hi Type          ctermfg=14
+            hi Special       ctermfg=11
+            " hi Identifier    ctermbg=2 ctermfg=10
+            hi Identifier    ctermfg=6
+            " hi MatchParen    ctermbg=4
+            hi MatchParen    ctermbg=11
+            hi Constant      ctermfg=15
+            hi Underlined    ctermfg=13
+            hi Bleached      ctermfg=5
+            hi Comment       ctermfg=3
+            " hi Tag           ctermfg=2 
+            hi Tag           ctermbg=2 ctermfg=10
+            hi Todo          ctermfg=6 ctermbg=4
+            hi DiffAdd       ctermfg=9 ctermbg=1
+            hi DiffDelete    ctermfg=12 ctermbg=4
+            hi DiffChange    ctermfg=10 ctermbg=2
+            hi DiffText      ctermfg=2 ctermfg=10
+            hi Folded        ctermfg=10 ctermbg=2
+            hi Error ctermfg=12 ctermbg=4
+            hi Title         ctermfg=10
+            hi Directory     ctermfg=10
+            hi Pmenu        ctermbg=3 ctermfg=11
+            hi PmenuSel     ctermfg=2 ctermfg=10
+            hi PmenuSbar    ctermbg=3
+            hi PmenuThumb   ctermbg=11
+
+            hi SpellBad     ctermfg=4 ctermbg=none cterm=none
+            hi SpellCap     ctermfg=1 ctermbg=none cterm=none
+            hi SpellRare    ctermfg=13 ctermbg=none cterm=none
+            hi SpellLocal   ctermfg=15 ctermbg=none cterm=none
+            
+        endif
     endfunction                       
                                       
     if version >= 700                 
@@ -213,8 +284,11 @@ if !exists("s:main")
                     \ 'ignore': g:marklar_ignore_opt,
                     \ 'underline': g:marklar_underline_opt,
                     \ 'conceal': g:marklar_conceal_opt,
-                    \ 'heat': 0,
-                    \ 'cold': 0 }
+                    \ 'cursor': g:marklar_cursor_opt,
+                    \ 'pmenu': g:marklar_pmenu_opt }
+
+                    "\ 'heat': 0,
+                    "\ 'cold': 0 }
         
         " push dict back to globals
         function! s:push_to_global()
@@ -222,6 +296,8 @@ if !exists("s:main")
             let g:marklar_ignore_opt    = s:opts['ignore']
             let g:marklar_underline_opt = s:opts['underline']
             let g:marklar_conceal_opt   = s:opts['conceal']
+            let g:marklar_cursor_opt    = s:opts['cursor']
+            let g:marklar_pmenu_opt     = s:opts['pmenu']
         endfunction
 
         function! s:print_opts(...)
@@ -264,13 +340,13 @@ if !exists("s:main")
                         let v = args[0]
                         let args = args[1:]
                         " legal value?
-                        if v == 0 || v == 1
+                        if v == 0 || v == 1 || v == 2
                             " assign key<-val
                             let s:opts[k] = v
                             call s:push_to_global()
                             call s:main()
                         else
-                            echoerr "(".v.") Bad value. Expected 0 or 1."
+                            echoerr "(".v.") Bad value. Expected 0 or 1. Some times 2."
                         endif
                     else
                     endif
