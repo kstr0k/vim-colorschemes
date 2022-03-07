@@ -1,3 +1,7 @@
+set termguicolors
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
 "                      _____ _____ _____ _   _   ___  ___  ___
 "                     |  __ \  _  |_   _| | | | / _ \ |  \/  |
 "                     | |  \/ | | | | | | |_| |/ /_\ \| .  . |
@@ -166,7 +170,7 @@ call s:Col('VertSplit', 'blue', s:linenr_background)
 call s:Col('StatusLineNC', 'blue', 'base2')
 
 " Matching parenthesis.
-call s:Col('MatchParen', 'base1', 'orange')
+call s:Col('MatchParen', 'base6', 'orange')
 
 " Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
 call s:Col('SpecialKey', 'base3')
@@ -233,7 +237,11 @@ call s:Col('rubyStringDelimiter', 'green')
 " HTML (and often Markdown).
 call s:Col('htmlArg', 'blue')
 call s:Col('htmlItalic', 'magenta')
+call s:Attr('htmlItalic', 'italic')
 call s:Col('htmlBold', 'cyan', '')
+call s:Attr('htmlBold', 'bold')
+call s:Col('htmlBoldItalic', 'cyan', '')
+call s:Attr('htmlBoldItalic', 'bold,italic')
 
 " Python                                                                                                                   
 call s:Col('pythonStatement', 'blue')
@@ -261,6 +269,12 @@ let g:unite_source_grep_search_word_highlight = 'UniteGrep'
 " ale https://github.com/w0rp/ale
 call s:Col('ALEWarningSign', 'yellow', s:linenr_background)
 call s:Col('ALEErrorSign', 'red', s:linenr_background)
+
+" neomake https://github.com/neomake/neomake
+call s:Col('NeomakeWarningSign', 'yellow', s:linenr_background)
+call s:Col('NeomakeErrorSign', 'red', s:linenr_background)
+call s:Col('NeomakeWarning', 'yellow')
+call s:Col('NeomakeError', 'red')
 
 " Cleanup =====================================================================
 

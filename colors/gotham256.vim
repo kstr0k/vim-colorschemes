@@ -1,3 +1,7 @@
+set termguicolors
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
 "                      _____ _____ _____ _   _   ___  ___  ___
 "                     |  __ \  _  |_   _| | | | / _ \ |  \/  |
 "                     | |  \/ | | | | | | |_| |/ /_\ \| .  . |
@@ -18,6 +22,9 @@ if exists('syntax_on') | syntax reset | endif
 set background=dark
 let g:colors_name = 'gotham256'
 
+if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
+  finish
+endif
 
 " Helper functions =============================================================
 
@@ -166,7 +173,7 @@ call s:Col('VertSplit', 'base2', s:linenr_background)
 call s:Col('StatusLineNC', 'blue', 'base2')
 
 " Matching parenthesis.
-call s:Col('MatchParen', 'base1', 'orange')
+call s:Col('MatchParen', 'base6', 'orange')
 
 " Special keys, e.g. some of the chars in 'listchars'. See ':h listchars'.
 call s:Col('SpecialKey', 'base3')

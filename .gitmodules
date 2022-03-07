@@ -19,3 +19,6 @@
 [submodule "submodules/onedark.vim"]
 	path = submodules/onedark.vim
 	url = https://github.com/joshdick/onedark.vim
+[submodule "submodules/vim-gotham"]
+	path = submodules/vim-gotham
+	url = https://github.com/whatyouhide/vim-gotham
