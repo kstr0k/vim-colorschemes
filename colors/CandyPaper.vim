@@ -1,285 +1,164 @@
+set termguicolors
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
 " Color Scheme: CandyPaper
-" Author: DF_XYZ
+" Author: DF_XYZ <dfxyz1@gmail.com>
 " License: MIT
+" Source: http://github.com/dfxyz/CandyPaper.vim
+" Last Change: 2021-12-19
 
-highlight clear
-set background=dark
-
+hi clear
 if exists("syntax_on")
     syntax reset
 endif
+let colors_name = "CandyPaper"
 
-let colors_name = "CandyCode"
+function s:hi(group, attrMap) "{{{
+    exec "hi clear "..a:group
+    let cmd = "hi "..a:group
+    for [key, value] in a:attrMap->items()
+        let cmd = cmd.." "..key.."="..value
+    endfor
+    exec cmd
+endfunction "}}}
 
-" Convert color from HSV to RGB as a hex string
-" See: https://en.wikipedia.org/wiki/HSL_and_HSV#From_HSV
-function s:hsv_to_rgb(h, s, v) "{
-    let l:C = (a:s / 100.0) * (a:v / 100.0)
-    let l:H = a:h / 60.0 | let l:H_mod_2 = float2nr(l:H) % 2 + l:H - float2nr(l:H)
-    let l:X = l:C * (1 - abs(l:H_mod_2 - 1))
+if &background == "light" 
+    " Light Scheme {{{
+    " Basic Groups {{{
+    call s:hi("Normal", {"guifg": "#406080", "guibg": "#FAFFF0"})
+    call s:hi("Comment", {"guifg": "#608040"})
+    call s:hi("Constant", {"guifg": "#C020C0"})
+    call s:hi("String", {"guifg": "#00909A"})
+    call s:hi("Character", {"guifg": "#00909A"})
+    call s:hi("Number", {"guifg": "#C0600A"})
+    call s:hi("Identifier", {"guifg": "#8020C0"})
+    call s:hi("Function", {"guifg": "#2040C0"})
+    call s:hi("Statement", {"guifg": "#108010"})
+    call s:hi("Operator", {"guifg": "fg"})
+    call s:hi("PreProc", {"guifg": "#707030"})
+    call s:hi("Macro", {"guifg": "#C0600A"})
+    call s:hi("Type", {"guifg": "#108010"})
+    call s:hi("Special", {"guifg": "#2040C0"})
+    call s:hi("SpecialChar", {"guifg": "#2040C0"})
+    call s:hi("Tag", {"guifg": "#2040FF"})
+    call s:hi("Delimiter", {"guifg": "fg"})
+    call s:hi("SpecialComment", {"guifg": "#608040"})
+    call s:hi("Debug", {"guifg": "#00909A"})
+    call s:hi("Underlined", {"guifg": "#2040FF"})
+    call s:hi("Error", {"guifg": "#CC0000"})
+    call s:hi("Todo", {"guibg": "#F0FF00"})
+    " }}}
+    " Groups for Other Occasions {{{
+    call s:hi("SpecialKey", {"guifg": "#2040C0"}) 
+    call s:hi("NonText", {"guifg": "#2040C0"}) 
+    call s:hi("Directory", {"guifg": "#2040C0"}) 
+    call s:hi("ErrorMsg", {"guifg": "white", "guibg": "#C05050"})
+    call s:hi("WarningMsg", {"guifg": "#CC0000"})
+    call s:hi("MoreMsg", {"guifg": "#108010"})
+    call s:hi("ModeMsg", {"guifg": "fg"})
+    call s:hi("Search", {"guifg": "fg", "guibg": "#A0FFA0"})
+    call s:hi("LineNr", {"guifg": "#6C809A"})
+    call s:hi("CursorLineNr", {"guifg": "fg", "guibg": "#F0F8E0"})
+    call s:hi("Question", {"guifg": "#108010"})
+    call s:hi("StatusLine", {"guibg": "#D0E8E0"})
+    call s:hi("StatusLineNC", {"guifg": "#609AC0", "guibg": "#D0E8E0"})
+    call s:hi("VertSplit", {"guifg": "#609AC0"})
+    call s:hi("Title", {"guifg": "#2040C0"})
+    call s:hi("Visual", {"guibg": "#C8F0A8"})
+    call s:hi("WildMenu", {"guibg": "#A8DCB0"})
+    call s:hi("Folded", {"guifg": "#609AC0", "guibg": "#E0F0E8"})
+    call s:hi("FoldColumn", {"guifg": "#609AC0"})
+    call s:hi("DiffAdd", {"guibg": "#DAF0DA"})
+    call s:hi("DiffChange", {"guibg": "#ECF8F8"})
+    call s:hi("DiffDelete", {"guifg": "#609AC0", "guibg": "#DCE0DC"})
+    call s:hi("DiffText", {"guibg": "#D8E8FF"})
+    call s:hi("SignColumn", {"guifg": "#00909A"})
+    call s:hi("SpellBad", {"guifg": "white", "guibg": "#CO5050"})
+    call s:hi("SpellCap", {"guifg": "white", "guibg": "#5C8AE8"})
+    call s:hi("SpellRare", {"guifg": "white", "guibg": "#A080C0"})
+    call s:hi("SpellLocal", {"guifg": "white", "guibg": "#38A8A8"})
+    call s:hi("Pmenu", {"guibg": "#D0E8E0"})
+    call s:hi("PmenuSel", {"guibg": "#A8DCB0"})
+    call s:hi("PmenuSbar", {"guibg": "#D0E8E0"})
+    call s:hi("PmenuThumb", {"guibg": "#949A90"})
+    call s:hi("TabLine", {"guibg": "#D0E8E0"})
+    call s:hi("TabLineSel", {"guifg": "fg"})
+    call s:hi("TabLineFill", {"guibg": "#D0E8E0"})
+    call s:hi("CursorColumn", {"guibg": "#F0F8E0"})
+    call s:hi("CursorLine", {"guibg": "#F0F8E0"})
+    call s:hi("ColorColumn", {"guibg": "#C8CCC0"})
+    call s:hi("MatchParen", {"guibg": "#B8E8D0"})
+    " }}}
+    " }}}
+else
+    " Dark Scheme {{{
+    " Basic Groups {{{
+    call s:hi("Normal", {"guifg": "#ACACAC", "guibg": "#202820"})
+    call s:hi("Comment", {"guifg": "#708060"})
+    call s:hi("Constant", {"guifg": "#C080A0"})
+    call s:hi("String", {"guifg": "#38A8A8"})
+    call s:hi("Character", {"guifg": "#38A8A8"})
+    call s:hi("Number", {"guifg": "#C0A040"})
+    call s:hi("Identifier", {"guifg": "#A080C0"})
+    call s:hi("Function", {"guifg": "#5C8AE8"})
+    call s:hi("Statement", {"guifg": "#5AB05A"})
+    call s:hi("Operator", {"guifg": "fg"})
+    call s:hi("PreProc", {"guifg": "#98AC38"})
+    call s:hi("Macro", {"guifg": "#C0A040"})
+    call s:hi("Type", {"guifg": "#5AB05A"})
+    call s:hi("Special", {"guifg": "#5C8AE8"})
+    call s:hi("SpecialChar", {"guifg": "#5C8AE8"})
+    call s:hi("Tag", {"guifg": "#5CA0E8"})
+    call s:hi("Delimiter", {"guifg": "fg"})
+    call s:hi("SpecialComment", {"guifg": "#708060"})
+    call s:hi("Debug", {"guifg": "#38A8A8"})
+    call s:hi("Underlined", {"guifg": "#5CA0E8"})
+    call s:hi("Error", {"guifg": "#C05050"})
+    call s:hi("Todo", {"guifg": "#ACBC00"})
+    " }}}
+    " Groups for Other Occasions {{{
+    call s:hi("SpecialKey", {"guifg": "#5C8AE8"}) 
+    call s:hi("NonText", {"guifg": "#5C8AE8"}) 
+    call s:hi("Directory", {"guifg": "#5C8AE8"}) 
+    call s:hi("ErrorMsg", {"guifg": "white", "guibg": "#C05050"})
+    call s:hi("WarningMsg", {"guifg": "#C05050"})
+    call s:hi("MoreMsg", {"guifg": "#5AB05A"})
+    call s:hi("ModeMsg", {"guifg": "fg"})
+    call s:hi("Search", {"guifg": "fg", "guibg": "#204C20"})
+    call s:hi("LineNr", {"guifg": "#687068"})
+    call s:hi("CursorLineNr", {"guifg": "fg", "guibg": "#283028"})
+    call s:hi("Question", {"guifg": "#5AB05A"})
+    call s:hi("StatusLine", {"guibg": "#304038"})
+    call s:hi("StatusLineNC", {"guifg": "#687068", "guibg": "#304038"})
+    call s:hi("VertSplit", {"guifg": "#687068"})
+    call s:hi("Title", {"guifg": "#5C8AE8"})
+    call s:hi("Visual", {"guibg": "#384820"})
+    call s:hi("WildMenu", {"guibg": "#3C6850"})
+    call s:hi("Folded", {"guifg": "#707A80", "guibg": "#384038"})
+    call s:hi("FoldColumn", {"guifg": "#707A80"})
+    call s:hi("DiffAdd", {"guibg": "#384C3C"})
+    call s:hi("DiffChange", {"guibg": "#203038"})
+    call s:hi("DiffDelete", {"guifg": "#707A80", "guibg": "#404440"})
+    call s:hi("DiffText", {"guibg": "#304868"})
+    call s:hi("SignColumn", {"guifg": "#38A8A8"})
+    call s:hi("SpellBad", {"guifg": "white", "guibg": "#CO5050"})
+    call s:hi("SpellCap", {"guifg": "white", "guibg": "#5C8AE8"})
+    call s:hi("SpellRare", {"guifg": "white", "guibg": "#A080C0"})
+    call s:hi("SpellLocal", {"guifg": "white", "guibg": "#38A8A8"})
+    call s:hi("Pmenu", {"guibg": "#304038"})
+    call s:hi("PmenuSel", {"guibg": "#3C6850"})
+    call s:hi("PmenuSbar", {"guibg": "#304038"})
+    call s:hi("PmenuThumb", {"guibg": "#607860"})
+    call s:hi("TabLine", {"guibg": "#304038"})
+    call s:hi("TabLineSel", {"guifg": "fg"})
+    call s:hi("TabLineFill", {"guibg": "#304038"})
+    call s:hi("CursorColumn", {"guibg": "#283028"})
+    call s:hi("CursorLine", {"guibg": "#283028"})
+    call s:hi("ColorColumn", {"guibg": "#404840"})
+    call s:hi("MatchParen", {"guibg": "#105A5A"})
+    " }}}
+    " }}}
+endif
 
-    if 0 <= l:H && l:H < 1
-        let l:r = l:C
-        let l:g = l:X
-        let l:b = 0
-    elseif 1 <= H && H < 2
-        let l:r = l:X
-        let l:g = l:C
-        let l:b = 0
-    elseif 2 <= l:H && l:H < 3
-        let l:r = 0
-        let l:g = l:C
-        let l:b = l:X
-    elseif 3 <= l:H && l:H < 4
-        let l:r = 0
-        let l:g = l:X
-        let l:b = l:C
-    elseif 4 <= l:H && l:H < 5
-        let l:r = X
-        let l:g = 0
-        let l:b = C
-    elseif 5 <= l:H && l:H < 6
-        let l:r = C
-        let l:g = 0
-        let l:b = X
-    else
-        let l:r = 0
-        let l:g = 0
-        let l:b = 0
-    endif
-
-    let l:r += a:v / 100.0 - l:C
-    let l:g += a:v / 100.0 - l:C
-    let l:b += a:v / 100.0 - l:C
-    let l:R = float2nr(round(l:r * 255))
-    let l:G = float2nr(round(l:g * 255))
-    let l:B = float2nr(round(l:b * 255))
-
-    return printf("#%02x%02x%02x", l:R, l:G, l:B)
-endfunction "}
-
-" Return the approximate grey index with the given grey level
-function s:grey_index(x) "{
-    if a:x < 14
-        return 0
-    else
-        let l:i = (a:x - 8) / 10
-        let l:j = (a:x - 8) % 10
-        return l:j < 5 ? l:i : l:i + 1
-    endif
-endfunction "}
-
-" Return the actual grey level with the grey index
-function s:grey_level(x) "{
-    return a:x == 0 ? 0 : a:x * 10 + 8
-endfunction "}
-
-" Return the color index with the given grey index
-function s:grey_color_index(x) "{
-    if a:x == 0
-        return 16
-    elseif a:x == 25
-        return 231
-    else
-        return 231 + a:x
-    endif
-endfunction "}
-
-" Return the approximate color index with the given color level
-function s:color_index(x) "{
-    if a:x < 75
-        return 0
-    else
-        let l:i = (a:x - 55) / 40
-        let l:j = (a:x - 55) % 40
-        return l:j < 20 ? l:i : l:i + 1
-    endif
-endfunction "}
-
-" Return the actual color level with the color index
-function s:color_level(x) "{
-    return a:x == 0 ? 0 : a:x * 40 + 55
-endfunction "}
-
-" Return the color index with the given color indices
-function s:rgb_color_index(x, y, z) "{
-    return 16 + a:x * 36 + a:y * 6 + a:z
-endfunction "}
-
-" Return the color index with the given RGB hex string
-function s:rgb_to_index(rgb) "{
-    let l:r = str2nr(strpart(a:rgb, 1, 2), 16)
-    let l:g = str2nr(strpart(a:rgb, 3, 2), 16)
-    let l:b = str2nr(strpart(a:rgb, 5, 2), 16)
-
-    let l:grey_x = s:grey_index(l:r)
-    let l:grey_y = s:grey_index(l:g)
-    let l:grey_z = s:grey_index(l:b)
-
-    let l:x = s:color_index(l:r)
-    let l:y = s:color_index(l:g)
-    let l:z = s:color_index(l:b)
-
-    if l:grey_x == l:grey_y && l:grey_y == l:grey_z
-        let l:diff_grey_r = s:grey_level(l:grey_x) - l:r
-        let l:diff_grey_g = s:grey_level(l:grey_y) - l:g
-        let l:diff_grey_b = s:grey_level(l:grey_z) - l:b
-        let l:diff_grey = l:diff_grey_r * l:diff_grey_r + l:diff_grey_g * l:diff_grey_g + l:diff_grey_b * l:diff_grey_b
-        let l:diff_r = s:color_level(l:grey_x) - l:r
-        let l:diff_g = s:color_level(l:grey_y) - l:g
-        let l:diff_b = s:color_level(l:grey_z) - l:b
-        let l:diff_color = l:diff_r * l:diff_r + l:diff_g * l:diff_g + l:diff_b * l:diff_b
-        return l:diff_grey < l:diff_color ? s:grey_color_index(l:grey_x) : s:rgb_color_index(l:x, l:y, l:z)
-    else
-        return s:rgb_color_index(l:x, l:y, l:x)
-    endif
-endfunction "}
-
-" Set foreground color
-function s:fg(group, h, s, v) "{
-    let l:rgb = s:hsv_to_rgb(a:h, a:s, a:v)
-    let l:index = s:rgb_to_index(l:rgb)
-    exec "highlight " . a:group . " guifg=" . l:rgb . " ctermfg=" . l:index
-endfunction "}
-
-" Set background color
-function s:bg(group, h, s, v) "{
-    let l:rgb = s:hsv_to_rgb(a:h, a:s, a:v)
-    let l:index = s:rgb_to_index(l:rgb)
-    exec "highlight " . a:group . " guibg=" . l:rgb . " ctermbg=" . l:index
-endfunction "}
-
-" Set attributions
-function s:attr(group, attr) "{
-    exec "highlight " . a:group . " gui=" . a:attr . " cterm=" . a:attr
-endfunction "}
-
-" Basic Highlighting Groups: 
-" {
-    call s:fg("SpecialKey", 60, 60, 75)
-    call s:fg("NonText", 120, 15, 45) | call s:attr("NonText", "none")
-    call s:fg("Directory", 210, 60, 75)
-    call s:fg("IncSearch", 0, 0, 15) | call s:bg("IncSearch", 90, 45, 75) | call s:attr("IncSearch", "none")
-    call s:fg("Search", 0, 0, 15) | call s:bg("Search", 60, 60, 75) | call s:attr("Search", "none")
-    call s:fg("ErrorMsg", 0, 0, 75) | call s:bg("ErrorMsg", 0, 75, 60)
-    call s:fg("WarningMsg", 0, 60, 75)
-    call s:fg("MoreMsg", 120, 45, 75) | call s:attr("MoreMsg", "none")
-    call s:attr("ModeMsg", "none")
-    call s:fg("LineNr", 120, 15, 45)
-    call s:fg("CursorLineNr", 120, 15, 60) | call s:attr("CursorLineNr", "none")
-    call s:fg("Question", 120, 45, 75) | call s:attr("Question", "none")
-    call s:fg("StatusLine", 0, 0, 15) | call s:bg("StatusLine", 120, 15, 75) | call s:attr("StatusLine", "none")
-    call s:fg("StatusLineNC", 120, 15, 30) | call s:bg("StatusLineNC", 120, 15, 75) | call s:attr("StatusLine", "none") 
-    call s:fg("Title", 120, 45, 75) | call s:attr("Title", "none")
-    call s:bg("Visual", 210, 60, 30)
-    call s:bg("VisualNOS", 210, 60, 30) | call s:attr("VisualNOS", "underline")
-    call s:fg("WildMenu", 120, 15, 75) | call s:bg("WildMenu", 0, 0, 15)
-    call s:fg("Folded", 90, 45, 75) | call s:bg("Folded", 150, 45, 30)
-    call s:fg("FoldColumn", 90, 45, 75) | call s:bg("FoldColumn", 0, 0, 15)
-    call s:bg("DiffAdd", 120, 45, 30)
-    call s:bg("DiffChange", 210, 45, 30)
-    call s:fg("DiffDelete", 120, 15, 75) | call s:bg("DiffDelete", 0, 0, 30) | call s:attr("DiffDelete", "none")
-    call s:bg("DiffText", 0, 45, 30) | call s:attr("DiffText", "none")
-    call s:fg("SignColumn", 90, 45, 75) | call s:bg("SignColumn", 0, 0, 15)
-    call s:fg("Conceal", 210, 60, 75) | call s:bg("Conceal", 0, 0, 15)
-    call s:fg("Pmenu", 0, 0, 15) | call s:bg("Pmenu", 120, 15, 60)
-    call s:fg("PmenuSel", 120, 15, 75) | call s:bg("PmenuSel", 210, 60, 30)
-    call s:bg("PmenuSbar", 120, 5, 45)
-    call s:bg("PmenuThumb", 120, 5, 75)
-    call s:fg("TabLine", 0, 0, 15) | call s:bg("TabLine", 120, 15, 75) | call s:attr("TabLine", "none")
-    call s:attr("TabLineSel", "none")
-    call s:bg("CursorLine", 120, 15, 20) | call s:attr("CursorLine", "none")
-    call s:bg("CursorColumn", 120, 15, 20)
-    call s:bg("ColorColumn", 120, 15, 30)
-" }
-
-" Basic Syntax Groups:
-" {
-    call s:fg("MatchParen", 90, 45, 75) | call s:bg("MatchParen", 150, 45, 30)
-    call s:fg("Normal", 120, 15, 75) | call s:bg("Normal", 0, 0, 15)
-    call s:fg("Comment", 120, 30, 60)
-    call s:fg("Constant", 300, 30, 75)
-    call s:fg("String", 90, 45, 75)
-    call s:fg("Character", 90, 45, 75)
-    call s:fg("Boolean", 120, 45, 75)
-    call s:fg("Identifier", 210, 60, 75)
-    call s:fg("Function", 210, 30, 75)
-    call s:fg("Statement", 120, 45, 75) | call s:attr("Statement", "none")
-    call s:fg("Operator", 210, 30, 75)
-    call s:fg("PreProc", 120, 45, 75)
-    call s:fg("Type", 120, 45, 75) | call s:attr("Type", "none")
-    call s:fg("Special", 60, 60, 75)
-    call s:fg("Tag", 120, 45, 75)
-    call s:fg("SpecialComment", 120, 45, 75)
-    call s:fg("Underlined", 210, 45, 75)
-    call s:fg("Ignore", 120, 15, 45)
-    highlight clear Error | call s:fg("Error", 0, 60, 75)
-    highlight clear Todo | call s:fg("Todo", 60, 60, 60)
-" }
-
-" Java Syntax:
-" {
-    call s:fg("javaOperator", 120, 45, 75)
-    call s:fg("javaCommentTitle", 120, 30, 60)
-    call s:fg("javaDocTags", 120, 45, 75)
-    call s:fg("javaDocParam", 120, 15, 75)
-    call s:fg("javaConstant", 120, 45, 75)
-    call s:fg("javaAnnotation", 270, 30, 75)
-" }
-
-" Python:
-" {
-    call s:fg("pythonOperator", 120, 45, 75)
-    call s:fg("pythonDecorator", 270, 30, 75)
-    call s:fg("pythonDecoratorName", 270, 30, 75)
-    call s:fg("pythonExceptions", 210, 60, 75)
-" }
-
-" Markdown:
-" {
-    call s:fg("markdownHeadingDelimiter", 120, 45, 75)
-    call s:fg("markdownCodeDelimiter", 90, 45, 75)
-    call s:fg("markdownCode", 90, 45, 75)
-    call s:fg("markdownCodeBlock", 90, 45, 75)
-" }
-
-" Vim Syntax:
-" {
-    call s:fg("vimOption", 270, 30, 75)
-    call s:fg("vimParenSep", 210, 30, 75)
-" }
-
-" XML Syntax:
-" {
-    call s:fg("xmlEntity", 270, 30, 75)
-    call s:fg("xmlAttrib", 210, 60, 75)
-    call s:fg("xmlTagName", 120, 45, 75)
-    call s:fg("xmlTag", 120, 45, 75)
-    call s:fg("xmlEndTag", 120, 45, 75)
-" }
-
-" HTML Syntax:
-" {
-    call s:fg("htmlTag", 120, 45, 75)
-    call s:fg("htmlEndTag", 120, 45, 75)
-    call s:fg("htmlArg", 210, 60, 75)
-    call s:fg("htmlSpecialChar", 270, 30, 75)
-    call s:fg("javascript", 120, 15, 75)
-" }
-
-" Delete Functions: 
-" {
-    delfunction s:hsv_to_rgb
-    delfunction s:grey_index
-    delfunction s:grey_level
-    delfunction s:grey_color_index
-    delfunction s:color_index
-    delfunction s:color_level
-    delfunction s:rgb_color_index
-    delfunction s:rgb_to_index
-    delfunction s:fg
-    delfunction s:bg
-    delfunction s:attr
-" }
-
-" vim: cc=120 foldmethod=marker foldmarker={,}
+" vim: fdm=marker fmr={{{,}}}

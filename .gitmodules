@@ -4,3 +4,6 @@
 [submodule "submodules/dracula"]
 	path = submodules/dracula
 	url = https://github.com/dracula/vim
+[submodule "submodules/CandyPaper.vim"]
+	path = submodules/CandyPaper.vim
+	url = https://github.com/dfxyz/CandyPaper.vim

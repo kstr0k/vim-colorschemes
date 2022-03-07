@@ -12,3 +12,8 @@ cat ../submodules/vim-code-dark/colors/codedark.vim >| ../colors/codedark.vim
 
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
+
+# Settings that's suppose to be in '.vimrc' as instructed in:
+# https://github.com/dfxyz/CandyPaper.vim/blob/30290f1eb12eefe44bac6810898fcf80a7fa98e2/README.md
+echo -e 'set termguicolors\nlet &t_8f="\\<Esc>[38;2;%lu;%lu;%lum"\nlet &t_8b="\\<Esc>[48;2;%lu;%lu;%lum"\n' >| ../colors/CandyPaper.vim
+cat ../submodules/CandyPaper.vim/colors/CandyPaper.vim >> ../colors/CandyPaper.vim
