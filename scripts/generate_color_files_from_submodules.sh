@@ -10,6 +10,8 @@ cd "$parent_path"
 
 cat ../submodules/vim-code-dark/colors/codedark.vim >| ../colors/codedark.vim
 
+cat ../submodules/jellybeans.vim/colors/jellybeans.vim >| ../colors/jellybeans.vim
+
 cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 

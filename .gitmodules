@@ -10,3 +10,6 @@
 [submodule "submodules/iceberg.vim"]
 	path = submodules/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim
+[submodule "submodules/jellybeans.vim"]
+	path = submodules/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim
