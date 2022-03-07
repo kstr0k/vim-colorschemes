@@ -43,3 +43,6 @@
 [submodule "submodules/yuejiu"]
 	path = submodules/yuejiu
 	url = https://github.com/slugbyte/yuejiu
+[submodule "submodules/falcon"]
+	path = submodules/falcon
+	url = https://github.com/fenetikm/falcon

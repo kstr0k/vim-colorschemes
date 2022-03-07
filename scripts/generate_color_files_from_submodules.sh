@@ -47,3 +47,6 @@ cat ../submodules/vim-colors-pencil/colors/pencil.vim >> ../colors/pencil.vim
 
 cat ./termguicolors.vim >| ../colors/nord.vim
 cat ../submodules/nord-vim/colors/nord.vim >> ../colors/nord.vim
+
+cat ./termguicolors.vim >| ../colors/falcon.vim
+cat ../submodules/falcon/colors/falcon.vim >| ../colors/falcon.vim
