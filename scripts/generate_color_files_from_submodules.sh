@@ -8,27 +8,34 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
-cat ../submodules/vim-code-dark/colors/codedark.vim >| ../colors/codedark.vim
+cat ./termguicolors.vim >| ../colors/codedark.vim
+cat ../submodules/vim-code-dark/colors/codedark.vim >> ../colors/codedark.vim
 
-cat ../submodules/jellybeans.vim/colors/jellybeans.vim >| ../colors/jellybeans.vim
+cat ./termguicolors.vim >| ../colors/jellybeans.vim
+cat ../submodules/jellybeans.vim/colors/jellybeans.vim >> ../colors/jellybeans.vim
 
-cat ../submodules/tender.vim/colors/tender.vim >| ../colors/tender.vim
+cat ./termguicolors.vim >| ../colors/tender.vim
+cat ../submodules/tender.vim/colors/tender.vim >> ../colors/tender.vim
 
 cat ../submodules/greenwint/colors/greenwint.vim >| ../colors/greenwint.vim
 
-cat ../submodules/vim-deus/colors/deus.vim >| ../colors/deus.vim
+cat ./termguicolors.vim >| ../colors/deus.vim
+cat ../submodules/vim-deus/colors/deus.vim >> ../colors/deus.vim
 
 cat ../submodules/yuejiu/colors/yuejiu.vim >| ../colors/yuejiu.vim
 
-cat ../submodules/dracula/autoload/dracula.vim >| ../colors/dracula.vim
+cat ./termguicolors.vim >| ../colors/dracula.vim
+cat ../submodules/dracula/autoload/dracula.vim >> ../colors/dracula.vim
 cat ../submodules/dracula/colors/dracula.vim >> ../colors/dracula.vim
 
 cat ./termguicolors.vim >| ../colors/CandyPaper.vim
 cat ../submodules/CandyPaper.vim/colors/CandyPaper.vim >> ../colors/CandyPaper.vim
 
-cat ../submodules/iceberg.vim/colors/iceberg.vim >| ../colors/iceberg.vim
+cat ./termguicolors.vim >| ../colors/iceberg.vim
+cat ../submodules/iceberg.vim/colors/iceberg.vim >> ../colors/iceberg.vim
 
-cat ../submodules/onedark.vim/autoload/onedark.vim >| ../colors/onedark.vim
+cat ./termguicolors.vim >| ../colors/onedark.vim
+cat ../submodules/onedark.vim/autoload/onedark.vim >> ../colors/onedark.vim
 cat ../submodules/onedark.vim/colors/onedark.vim >> ../colors/onedark.vim
 
 cat ./termguicolors.vim >| ../colors/gotham.vim
