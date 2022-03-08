@@ -1,44 +1,44 @@
 [submodule "submodules/vim-code-dark"]
-	path = submodules/vim-code-dark
+	path = submodules/codedark
 	url = https://github.com/tomasiser/vim-code-dark
 [submodule "submodules/dracula"]
 	path = submodules/dracula
 	url = https://github.com/dracula/vim
 [submodule "submodules/CandyPaper.vim"]
-	path = submodules/CandyPaper.vim
+	path = submodules/CandyPaper
 	url = https://github.com/dfxyz/CandyPaper.vim
 [submodule "submodules/iceberg.vim"]
-	path = submodules/iceberg.vim
+	path = submodules/iceberg
 	url = https://github.com/cocopon/iceberg.vim
 [submodule "submodules/jellybeans.vim"]
-	path = submodules/jellybeans.vim
+	path = submodules/jellybeans
 	url = https://github.com/nanotech/jellybeans.vim
 [submodule "submodules/tender.vim"]
-	path = submodules/tender.vim
+	path = submodules/tender
 	url = https://github.com/jacoborus/tender.vim
 [submodule "submodules/onedark.vim"]
-	path = submodules/onedark.vim
+	path = submodules/onedark
 	url = https://github.com/joshdick/onedark.vim
 [submodule "submodules/vim-gotham"]
-	path = submodules/vim-gotham
+	path = submodules/gotham
 	url = https://github.com/whatyouhide/vim-gotham
 [submodule "submodules/vim-colors-off"]
-	path = submodules/vim-colors-off
+	path = submodules/off
 	url = https://github.com/pbrisbin/vim-colors-off
 [submodule "submodules/winterd"]
 	path = submodules/winterd
 	url = https://github.com/smurfd/winterd
 [submodule "submodules/vim-colors-pencil"]
-	path = submodules/vim-colors-pencil
+	path = submodules/pencil
 	url = https://github.com/preservim/vim-colors-pencil
 [submodule "submodules/greenwint"]
 	path = submodules/greenwint
 	url = https://github.com/preocanin/greenwint
 [submodule "submodules/nord-vim"]
-	path = submodules/nord-vim
+	path = submodules/nord
 	url = https://github.com/arcticicestudio/nord-vim
 [submodule "submodules/vim-deus"]
-	path = submodules/vim-deus
+	path = submodules/deus
 	url = https://github.com/ajmwagar/vim-deus
 [submodule "submodules/yuejiu"]
 	path = submodules/yuejiu
