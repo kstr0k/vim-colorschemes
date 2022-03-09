@@ -17,12 +17,14 @@ cat ../submodules/jellybeans/colors/jellybeans.vim >> ../colors/jellybeans.vim
 cat ./termguicolors.vim >| ../colors/tender.vim
 cat ../submodules/tender/colors/tender.vim >> ../colors/tender.vim
 
-cat ../submodules/greenwint/colors/greenwint.vim >| ../colors/greenwint.vim
+cat ./termguicolors.vim >| ../colors/greenwint.vim
+cat ../submodules/greenwint/colors/greenwint.vim >> ../colors/greenwint.vim
 
 cat ./termguicolors.vim >| ../colors/deus.vim
 cat ../submodules/deus/colors/deus.vim >> ../colors/deus.vim
 
-cat ../submodules/yuejiu/colors/yuejiu.vim >| ../colors/yuejiu.vim
+cat ./termguicolors.vim >| ../colors/yuejiu.vim
+cat ../submodules/yuejiu/colors/yuejiu.vim >> ../colors/yuejiu.vim
 
 cat ./termguicolors.vim >| ../colors/dracula.vim
 cat ../submodules/dracula/autoload/dracula.vim >> ../colors/dracula.vim
