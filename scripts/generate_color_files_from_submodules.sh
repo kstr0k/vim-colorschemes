@@ -58,4 +58,4 @@ cat ./termguicolors.vim >| ../colors/nord.vim
 cat ../submodules/nord/colors/nord.vim >> ../colors/nord.vim
 
 cat ./termguicolors.vim >| ../colors/falcon.vim
-cat ../submodules/falcon/colors/falcon.vim >| ../colors/falcon.vim
+cat ../submodules/falcon/colors/falcon.vim >> ../colors/falcon.vim
