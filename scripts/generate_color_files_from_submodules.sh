@@ -11,19 +11,21 @@ cd "$parent_path"
 
 
 for submodule_dir in ../submodules/*; do
-  colorscheme_name=$(basename $submodule_dir)
-  output_file="../colors/$colorscheme_name.vim"
+  for colors_file in $submodule_dir/colors/*.vim; do
+    colors_filename=$(basename $colors_file)
+    output_file="../colors/$colors_filename"
+    
+    # Enable 'termguicolors', else most colorschemes might display incorrect colors.
+    cat ./termguicolors.vim >| $output_file
 
-  # Enable 'termguicolors', else most colorschemes might display incorrect colors.
-  cat ./termguicolors.vim >| $output_file
-  
-  # A few colorschemes declare their color palette variables in the
-  # '/submodule/[name]/autoload/[name].vim' file.
-  autoload_file="$submodule_dir/autoload/$colorscheme_name.vim"
-  if test -f "$autoload_file"; then
-    cat $autoload_file >> $output_file
-  fi
+    # A few colorschemes declare their color palette variables in the
+    # '/submodule/[name]/autoload/[name].vim' file.
+    autoload_file="$submodule_dir/autoload/$colors_filename"
+    if test -f "$autoload_file"; then
+      cat $autoload_file >> $output_file
+    fi
 
-  # Copy over main colors file.
-  cat "$submodule_dir/colors/$colorscheme_name.vim" >> $output_file
+    # Copy over main colors file.
+    cat $colors_file >> $output_file
+  done
 done
