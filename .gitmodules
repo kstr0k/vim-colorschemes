@@ -64,3 +64,6 @@
 [submodule "submodules/ayu"]
 	path = submodules/ayu
 	url = https://github.com/ayu-theme/ayu-vim
+[submodule "submodules/inkpot"]
+	path = submodules/inkpot
+	url = https://github.com/ciaranm/inkpot
