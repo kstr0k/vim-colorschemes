@@ -61,3 +61,6 @@
 [submodule "submodules/OceanicNext"]
 	path = submodules/OceanicNext
 	url = https://github.com/mhartington/oceanic-next
+[submodule "submodules/ayu"]
+	path = submodules/ayu
+	url = https://github.com/ayu-theme/ayu-vim
