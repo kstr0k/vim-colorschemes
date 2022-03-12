@@ -67,3 +67,6 @@
 [submodule "submodules/inkpot"]
 	path = submodules/inkpot
 	url = https://github.com/ciaranm/inkpot
+[submodule "submodules/molokai"]
+	path = submodules/molokai
+	url = https://github.com/tomasr/molokai
