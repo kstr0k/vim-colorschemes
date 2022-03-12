@@ -52,3 +52,6 @@
 [submodule "submodules/vim-fahrenheit"]
 	path = submodules/fahrenheit
 	url = https://github.com/fcpg/vim-fahrenheit
+[submodule "submodules/Zenburn"]
+	path = submodules/zenburn
+	url = https://github.com/jnurmine/Zenburn
