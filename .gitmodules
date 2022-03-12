@@ -55,3 +55,6 @@
 [submodule "submodules/Zenburn"]
 	path = submodules/zenburn
 	url = https://github.com/jnurmine/Zenburn
+[submodule "submodules/badwolf"]
+	path = submodules/badwolf_goodwolf
+	url = https://github.com/sjl/badwolf
