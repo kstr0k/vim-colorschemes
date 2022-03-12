@@ -46,3 +46,6 @@
 [submodule "submodules/falcon"]
 	path = submodules/falcon
 	url = https://github.com/fenetikm/falcon
+[submodule "submodules/donttouchme_chalkboard"]
+	path = submodules/donttouchme_chalkboard
+	url = https://github.com/addie43110/donttouchme
