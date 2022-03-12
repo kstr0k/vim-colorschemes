@@ -21,7 +21,7 @@ for submodule_dir in ../submodules/*; do
     # A few colorschemes declare their color palette variables in the
     # '/submodule/[name]/autoload/[name].vim' file.
     autoload_file="$submodule_dir/autoload/$colors_filename"
-    if test -f "$autoload_file"; then
+    if [ -f "$autoload_file" ]; then
       cat $autoload_file >> $output_file
     fi
 
