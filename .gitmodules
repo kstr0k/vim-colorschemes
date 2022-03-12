@@ -73,3 +73,6 @@
 [submodule "submodules/monokai"]
 	path = submodules/monokai
 	url = https://github.com/sickill/vim-monokai
+[submodule "submodules/srcery"]
+	path = submodules/srcery
+	url = https://github.com/srcery-colors/srcery-vim
