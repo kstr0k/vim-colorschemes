@@ -1,7 +1,13 @@
+" Fixes incorrect colors on some colorscheme.
+" source: https://github.com/vim/vim/issues/993#issuecomment-255651605
+set termguicolors
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
 " Colorscheme created with ColorSchemeEditor v1.2.3
 "Name: PerfectDark
 "Maintainer: Vic Luo <lz96@foxmail.com>
-"Last Change: 2015 09 12
+"Last Change: 2016 02 06
 set background=dark
 if version > 580
 	highlight clear
@@ -96,13 +102,16 @@ highlight Typedef guifg=#27b684 gui=bold cterm=bold
 highlight Underlined guifg=#80a0ff gui=underline cterm=underline
 highlight cPreProc guifg=#ed0000 gui=bold
 
+highlight cCustomClass guifg=#7bc25b
+
 "ColorScheme metadata{{{
 if v:version >= 700
 	let g:native_Metadata = {
 				\"Palette" : "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90",
-				\"Last Change" : "2015 09 12",
+				\"Last Change" : "2016 02 06",
 				\"Name" : "PerfectDark",
 				\}
 endif
 "}}}
 " vim:set foldmethod=marker expandtab filetype=vim:
+
