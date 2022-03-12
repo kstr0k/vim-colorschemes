@@ -11,7 +11,14 @@ cd "$parent_path"
 
 
 for submodule_dir in ../submodules/*; do
-  for colors_file in $submodule_dir/colors/*.vim; do
+  colors_dir="$submodule_dir/colors"
+
+  # Some repos use '/colours' dir instead
+  if [ ! -d "$colors_dir" ]; then
+    colors_dir="$submodule_dir/colours"
+  fi
+
+  for colors_file in $colors_dir/*.vim; do
     colors_filename=$(basename $colors_file)
     output_file="../colors/$colors_filename"
     
