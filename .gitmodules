@@ -58,3 +58,6 @@
 [submodule "submodules/badwolf"]
 	path = submodules/badwolf_goodwolf
 	url = https://github.com/sjl/badwolf
+[submodule "submodules/OceanicNext"]
+	path = submodules/OceanicNext
+	url = https://github.com/mhartington/oceanic-next
