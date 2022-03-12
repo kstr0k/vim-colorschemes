@@ -49,3 +49,6 @@
 [submodule "submodules/donttouchme_chalkboard"]
 	path = submodules/donttouchme_chalkboard
 	url = https://github.com/addie43110/donttouchme
+[submodule "submodules/vim-fahrenheit"]
+	path = submodules/fahrenheit
+	url = https://github.com/fcpg/vim-fahrenheit
