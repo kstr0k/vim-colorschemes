@@ -106,3 +106,6 @@
 [submodule "submodules/znake"]
 	path = submodules/znake
 	url = https://github.com/znake/znake-vim
+[submodule "submodules/basic"]
+	path = submodules/zcode_basic
+	url = https://github.com/zcodes/vim-colors-basic
