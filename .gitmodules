@@ -94,3 +94,6 @@
 [submodule "submodules/kuroi"]
 	path = submodules/kuroi
 	url = https://github.com/aonemd/kuroi.vim
+[submodule "submodules/base16"]
+	path = submodules/base16
+	url = https://github.com/chriskempson/base16-vim
