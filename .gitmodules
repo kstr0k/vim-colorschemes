@@ -115,3 +115,6 @@
 [submodule "submodules/hybrid_material_reverse"]
 	path = submodules/hybrid_material_reverse
 	url = https://github.com/kristijanhusak/vim-hybrid-material
+[submodule "submodules/brogrammer"]
+	path = submodules/brogrammer
+	url = https://github.com/marciomazza/vim-brogrammer-theme
