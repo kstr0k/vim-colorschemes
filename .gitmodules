@@ -118,3 +118,6 @@
 [submodule "submodules/brogrammer"]
 	path = submodules/brogrammer
 	url = https://github.com/marciomazza/vim-brogrammer-theme
+[submodule "submodules/neodark"]
+	path = submodules/neodark
+	url = https://github.com/KeitaNakamura/neodark.vim
