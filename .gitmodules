@@ -82,3 +82,6 @@
 [submodule "submodules/aracadia"]
 	path = submodules/arcadia
 	url = https://github.com/AlessandroYorba/Arcadia
+[submodule "submodules/despacio"]
+	path = submodules/despacio
+	url = https://github.com/AlessandroYorba/Despacio
