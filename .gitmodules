@@ -79,3 +79,6 @@
 [submodule "submodules/lucius"]
 	path = submodules/lucius
 	url = https://github.com/jonathanfilip/vim-lucius
+[submodule "submodules/aracadia"]
+	path = submodules/arcadia
+	url = https://github.com/AlessandroYorba/Arcadia
