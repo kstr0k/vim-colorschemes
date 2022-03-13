@@ -91,3 +91,6 @@
 [submodule "submodules/alduin"]
 	path = submodules/alduin
 	url = https://github.com/AlessandroYorba/Alduin
+[submodule "submodules/kuroi"]
+	path = submodules/kuroi
+	url = https://github.com/aonemd/kuroi.vim
