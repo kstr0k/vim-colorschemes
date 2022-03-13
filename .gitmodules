@@ -100,3 +100,6 @@
 [submodule "submodules/mod8"]
 	path = submodules/mod8
 	url = https://github.com/easysid/mod8.vim
+[submodule "submodules/xcode"]
+	path = submodules/xcode
+	url = https://github.com/Addisonbean/Vim-Xcode-Theme
