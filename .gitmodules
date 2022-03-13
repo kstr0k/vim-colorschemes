@@ -85,3 +85,6 @@
 [submodule "submodules/despacio"]
 	path = submodules/despacio
 	url = https://github.com/AlessandroYorba/Despacio
+[submodule "submodules/sierra"]
+	path = submodules/sierra
+	url = https://github.com/AlessandroYorba/Sierra
