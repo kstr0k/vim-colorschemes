@@ -109,3 +109,6 @@
 [submodule "submodules/basic"]
 	path = submodules/zcode_basic
 	url = https://github.com/zcodes/vim-colors-basic
+[submodule "submodules/hybrid"]
+	path = submodules/hybrid
+	url = https://github.com/w0ng/vim-hybrid
