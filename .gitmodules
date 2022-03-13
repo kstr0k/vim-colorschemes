@@ -88,3 +88,6 @@
 [submodule "submodules/sierra"]
 	path = submodules/sierra
 	url = https://github.com/AlessandroYorba/Sierra
+[submodule "submodules/alduin"]
+	path = submodules/alduin
+	url = https://github.com/AlessandroYorba/Alduin
