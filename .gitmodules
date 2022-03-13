@@ -103,3 +103,6 @@
 [submodule "submodules/xcode"]
 	path = submodules/xcode
 	url = https://github.com/Addisonbean/Vim-Xcode-Theme
+[submodule "submodules/znake"]
+	path = submodules/znake
+	url = https://github.com/znake/znake-vim
