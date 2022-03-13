@@ -76,3 +76,6 @@
 [submodule "submodules/srcery"]
 	path = submodules/srcery
 	url = https://github.com/srcery-colors/srcery-vim
+[submodule "submodules/lucius"]
+	path = submodules/lucius
+	url = https://github.com/jonathanfilip/vim-lucius
