@@ -112,3 +112,6 @@
 [submodule "submodules/hybrid"]
 	path = submodules/hybrid
 	url = https://github.com/w0ng/vim-hybrid
+[submodule "submodules/hybrid_material_reverse"]
+	path = submodules/hybrid_material_reverse
+	url = https://github.com/kristijanhusak/vim-hybrid-material
