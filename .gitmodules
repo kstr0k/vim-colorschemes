@@ -121,3 +121,6 @@
 [submodule "submodules/neodark"]
 	path = submodules/neodark
 	url = https://github.com/KeitaNakamura/neodark.vim
+[submodule "submodules/1989"]
+	path = submodules/1989
+	url = https://github.com/sonjapeterson/1989.vim
