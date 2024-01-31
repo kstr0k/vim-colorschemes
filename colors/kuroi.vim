@@ -29,7 +29,7 @@ let g:colors_name = "kuroi"
 
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
-let s:gui_background = "#1b1918"
+let s:gui_background = get(g:, "kuroi_background_color", "#1b1918")
 let s:gui_foreground = "#c5c8c6"
 let s:gui_selection  = "#373b41"
 let s:gui_line       = "#282a2e"
@@ -76,7 +76,7 @@ let s:palette.gui.gitgutterchg = { 'dark' : s:gui_orange     }
 let s:palette.gui.gitgutterdlt = { 'dark' : s:gui_red        }
 let s:palette.gui.linewarning  = { 'dark' : "#371F1C"        }
 
-let s:cterm_background = "234"
+let s:cterm_background = get(g:, "kuroi_background_color", "234")
 let s:cterm_foreground = "250"
 let s:cterm_selection  = "237"
 let s:cterm_line       = "235"
@@ -172,6 +172,7 @@ call s:build_prim('bg', 'darkblue')
 call s:build_prim('bg', 'darkcyan')
 call s:build_prim('bg', 'darkred')
 call s:build_prim('bg', 'darkpurple')
+call s:build_prim('bg', 'gray')
 call s:build_prim('bg', 'statusline')
 call s:build_prim('bg', 'statuslinenc')
 call s:build_prim('bg', 'linewarning')
@@ -201,6 +202,8 @@ call s:build_prim('fg', 'darkcyan')
 call s:build_prim('fg', 'darkred')
 call s:build_prim('fg', 'darkpurple')
 call s:build_prim('fg', 'gray')
+call s:build_prim('fg', 'statusline')
+call s:build_prim('fg', 'statuslinenc')
 call s:build_prim('fg', 'gitgutteradd')
 call s:build_prim('fg', 'gitgutterchg')
 call s:build_prim('fg', 'gitgutterdlt')
@@ -267,9 +270,9 @@ exe "hi! MatchParen"    .s:fg_foreground  .s:bg_purple      .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! Pmenu"         .s:fg_foreground  .s:bg_selection   .s:fmt_none
-exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
-exe "hi! InfoPopup"     .s:fg_foreground  .s:bg_selection   .s:fmt_none
+exe "hi! Pmenu"         .s:fg_foreground  .s:bg_background  .s:fmt_none
+exe "hi! PmenuSel"      .s:fg_green       .s:bg_background  .s:fmt_revr
+exe "hi! InfoPopup"     .s:fg_foreground  .s:bg_background  .s:fmt_none
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"          .s:fg_green       .s:bg_none          .s:fmt_none
@@ -283,10 +286,12 @@ exe "hi! StatusLine"        .s:fg_gray        .s:bg_statusline    .s:fmt_revr
 exe "hi! StatusLineNC"      .s:fg_gray        .s:bg_statuslinenc  .s:fmt_revr
 exe "hi! StatusLineTerm"    .s:fg_gray        .s:bg_statusline    .s:fmt_revr
 exe "hi! StatusLineTermNC"  .s:fg_gray        .s:bg_statuslinenc  .s:fmt_revr
-exe "hi! TabLine"           .s:fg_foreground  .s:bg_darkcolumn    .s:fmt_revr
-exe "hi! TabLineFill"       .s:fg_background  .s:bg_background    .s:fmt_revr
-exe "hi! EndOfBuffer"       .s:fg_background  .s:bg_background    .s:fmt_none
-"   TabLineSel"
+
+exe "hi! TabLine"           .s:fg_statuslinenc  .s:bg_gray    .s:fmt_none
+exe "hi! TabLineSel"        .s:fg_statusline  .s:bg_background            .s:fmt_bold
+exe "hi! TabLineFill"       .s:fg_gray .s:bg_gray           .s:fmt_none
+exe "hi! EndOfBuffer"       .s:fg_gray .s:bg_background     .s:fmt_none
+
 exe "hi! Title"             .s:fg_yellow      .s:bg_none        .s:fmt_bold
 exe "hi! Visual"            .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
@@ -399,6 +404,12 @@ exe "hi! GitGutterDelete"  .s:fg_gitgutterdlt  .s:bg_none  .s:fmt_none
 exe "hi! SignifySignAdd"     .s:fg_gitgutteradd  .s:bg_none  .s:fmt_none
 exe "hi! SignifySignChange"  .s:fg_gitgutterchg  .s:bg_none  .s:fmt_none
 exe "hi! SignifySignDelete"  .s:fg_gitgutterdlt  .s:bg_none  .s:fmt_none
+
+"}}}
+" Nvim Stuff:"{{{
+" ----------------------------------------------------------------------------
+exe "hi! NormalFloat"               .s:fg_foreground  .s:bg_background  .s:fmt_none
+exe "hi! FloatBorder"               .s:fg_selection   .s:bg_none        .s:fmt_none
 
 "}}}
 "

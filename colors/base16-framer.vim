@@ -8,7 +8,7 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Material Palenight scheme by Nate Peterson
+" Framer scheme by Framer (Maintained by Jesse Hoyos)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -16,43 +16,43 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has("gui_running")
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-material-palenight.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-framer.sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00        = "292D3E"
-let g:base16_gui00 = "292D3E"
-let s:gui01        = "444267"
-let g:base16_gui01 = "444267"
-let s:gui02        = "32374D"
-let g:base16_gui02 = "32374D"
-let s:gui03        = "676E95"
-let g:base16_gui03 = "676E95"
-let s:gui04        = "8796B0"
-let g:base16_gui04 = "8796B0"
-let s:gui05        = "959DCB"
-let g:base16_gui05 = "959DCB"
-let s:gui06        = "959DCB"
-let g:base16_gui06 = "959DCB"
-let s:gui07        = "FFFFFF"
-let g:base16_gui07 = "FFFFFF"
-let s:gui08        = "F07178"
-let g:base16_gui08 = "F07178"
-let s:gui09        = "F78C6C"
-let g:base16_gui09 = "F78C6C"
-let s:gui0A        = "FFCB6B"
-let g:base16_gui0A = "FFCB6B"
-let s:gui0B        = "C3E88D"
-let g:base16_gui0B = "C3E88D"
-let s:gui0C        = "89DDFF"
-let g:base16_gui0C = "89DDFF"
-let s:gui0D        = "82AAFF"
-let g:base16_gui0D = "82AAFF"
-let s:gui0E        = "C792EA"
-let g:base16_gui0E = "C792EA"
-let s:gui0F        = "FF5370"
-let g:base16_gui0F = "FF5370"
+let s:gui00        = "181818"
+let g:base16_gui00 = "181818"
+let s:gui01        = "151515"
+let g:base16_gui01 = "151515"
+let s:gui02        = "464646"
+let g:base16_gui02 = "464646"
+let s:gui03        = "747474"
+let g:base16_gui03 = "747474"
+let s:gui04        = "B9B9B9"
+let g:base16_gui04 = "B9B9B9"
+let s:gui05        = "D0D0D0"
+let g:base16_gui05 = "D0D0D0"
+let s:gui06        = "E8E8E8"
+let g:base16_gui06 = "E8E8E8"
+let s:gui07        = "EEEEEE"
+let g:base16_gui07 = "EEEEEE"
+let s:gui08        = "FD886B"
+let g:base16_gui08 = "FD886B"
+let s:gui09        = "FC4769"
+let g:base16_gui09 = "FC4769"
+let s:gui0A        = "FECB6E"
+let g:base16_gui0A = "FECB6E"
+let s:gui0B        = "32CCDC"
+let g:base16_gui0B = "32CCDC"
+let s:gui0C        = "ACDDFD"
+let g:base16_gui0C = "ACDDFD"
+let s:gui0D        = "20BCFC"
+let g:base16_gui0D = "20BCFC"
+let s:gui0E        = "BA8CFC"
+let g:base16_gui0E = "BA8CFC"
+let s:gui0F        = "B15F4A"
+let g:base16_gui0F = "B15F4A"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -105,22 +105,22 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#292D3E"
-  let g:terminal_color_1 =  "#F07178"
-  let g:terminal_color_2 =  "#C3E88D"
-  let g:terminal_color_3 =  "#FFCB6B"
-  let g:terminal_color_4 =  "#82AAFF"
-  let g:terminal_color_5 =  "#C792EA"
-  let g:terminal_color_6 =  "#89DDFF"
-  let g:terminal_color_7 =  "#959DCB"
-  let g:terminal_color_8 =  "#676E95"
-  let g:terminal_color_9 =  "#F07178"
-  let g:terminal_color_10 = "#C3E88D"
-  let g:terminal_color_11 = "#FFCB6B"
-  let g:terminal_color_12 = "#82AAFF"
-  let g:terminal_color_13 = "#C792EA"
-  let g:terminal_color_14 = "#89DDFF"
-  let g:terminal_color_15 = "#FFFFFF"
+  let g:terminal_color_0 =  "#181818"
+  let g:terminal_color_1 =  "#FD886B"
+  let g:terminal_color_2 =  "#32CCDC"
+  let g:terminal_color_3 =  "#FECB6E"
+  let g:terminal_color_4 =  "#20BCFC"
+  let g:terminal_color_5 =  "#BA8CFC"
+  let g:terminal_color_6 =  "#ACDDFD"
+  let g:terminal_color_7 =  "#D0D0D0"
+  let g:terminal_color_8 =  "#747474"
+  let g:terminal_color_9 =  "#FD886B"
+  let g:terminal_color_10 = "#32CCDC"
+  let g:terminal_color_11 = "#FECB6E"
+  let g:terminal_color_12 = "#20BCFC"
+  let g:terminal_color_13 = "#BA8CFC"
+  let g:terminal_color_14 = "#ACDDFD"
+  let g:terminal_color_15 = "#EEEEEE"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -129,29 +129,29 @@ if has("nvim")
   endif
 elseif has("terminal")
   let g:terminal_ansi_colors = [
-        \ "#292D3E",
-        \ "#F07178",
-        \ "#C3E88D",
-        \ "#FFCB6B",
-        \ "#82AAFF",
-        \ "#C792EA",
-        \ "#89DDFF",
-        \ "#959DCB",
-        \ "#676E95",
-        \ "#F07178",
-        \ "#C3E88D",
-        \ "#FFCB6B",
-        \ "#82AAFF",
-        \ "#C792EA",
-        \ "#89DDFF",
-        \ "#FFFFFF",
+        \ "#181818",
+        \ "#FD886B",
+        \ "#32CCDC",
+        \ "#FECB6E",
+        \ "#20BCFC",
+        \ "#BA8CFC",
+        \ "#ACDDFD",
+        \ "#D0D0D0",
+        \ "#747474",
+        \ "#FD886B",
+        \ "#32CCDC",
+        \ "#FECB6E",
+        \ "#20BCFC",
+        \ "#BA8CFC",
+        \ "#ACDDFD",
+        \ "#EEEEEE",
         \ ]
 endif
 
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-material-palenight"
+let g:colors_name = "base16-framer"
 
 " Highlighting function
 " Optional variables are attributes and guisp
@@ -159,11 +159,22 @@ function! g:Base16hi(group, guifg, guibg, ctermfg, ctermbg, ...)
   let l:attr = get(a:, 1, "")
   let l:guisp = get(a:, 2, "")
 
+  " See :help highlight-guifg
+  let l:gui_special_names = ["NONE", "bg", "background", "fg", "foreground"]
+
   if a:guifg != ""
-    exec "hi " . a:group . " guifg=#" . a:guifg
+    if index(l:gui_special_names, a:guifg) >= 0
+      exec "hi " . a:group . " guifg=" . a:guifg
+    else
+      exec "hi " . a:group . " guifg=#" . a:guifg
+    endif
   endif
   if a:guibg != ""
-    exec "hi " . a:group . " guibg=#" . a:guibg
+    if index(l:gui_special_names, a:guibg) >= 0
+      exec "hi " . a:group . " guibg=" . a:guibg
+    else
+      exec "hi " . a:group . " guibg=#" . a:guibg
+    endif
   endif
   if a:ctermfg != ""
     exec "hi " . a:group . " ctermfg=" . a:ctermfg
@@ -175,7 +186,11 @@ function! g:Base16hi(group, guifg, guibg, ctermfg, ctermbg, ...)
     exec "hi " . a:group . " gui=" . l:attr . " cterm=" . l:attr
   endif
   if l:guisp != ""
-    exec "hi " . a:group . " guisp=#" . l:guisp
+    if index(l:gui_special_names, l:guisp) >= 0
+      exec "hi " . a:group . " guisp=" . l:guisp
+    else
+      exec "hi " . a:group . " guisp=#" . l:guisp
+    endif
   endif
 endfunction
 
@@ -250,7 +265,7 @@ call <sid>hi("PreProc",      s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("Repeat",       s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("Special",      s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("SpecialChar",  s:gui0F, "", s:cterm0F, "", "", "")
-call <sid>hi("Statement",    s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("Statement",    s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("StorageClass", s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("String",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("Structure",    s:gui0E, "", s:cterm0E, "", "", "")
@@ -337,6 +352,12 @@ call <sid>hi("jsGlobalObjects",     s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("jsGlobalNodeObjects", s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("jsExceptions",        s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("jsBuiltins",          s:gui0A, "", s:cterm0A, "", "", "")
+
+" LSP highlighting
+call <sid>hi("LspDiagnosticsDefaultError", s:gui08, "", s:cterm08, "", "", "")
+call <sid>hi("LspDiagnosticsDefaultWarning", s:gui09, "", s:cterm09, "", "", "")
+call <sid>hi("LspDiagnosticsDefaultHnformation", s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("LspDiagnosticsDefaultHint", s:gui03, "", s:cterm03, "", "", "")
 
 " Mail highlighting
 call <sid>hi("mailQuoted1",  s:gui0A, "", s:cterm0A, "", "", "")
